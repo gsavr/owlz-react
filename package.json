@@ -1,0 +1,27 @@
+{
+  "name": "owlz-react",
+  "version": "1.0.0",
+  "description": "## Overview An app that scrapes articles from the New York Times website and lets users save articles and leave comments on the latest news.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/captainflo/owlz-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/captainflo/owlz-react/issues"
+  },
+  "homepage": "https://github.com/captainflo/owlz-react#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.6.1"
+  }
+}
