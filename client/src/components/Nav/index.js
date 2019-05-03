@@ -16,12 +16,12 @@ function Nav() {
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to="/about" className={window.location.pathname === "/" ? "nav-link" : ""}>
+            <Link to="/about" className={window.location.pathname === "/" ? "nav-link" : "nav-link"}>
               About us 
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className={window.location.pathname === "/" ? "nav-link" : ""}>
+            <Link to="/contact" className={window.location.pathname === "/" ? "nav-link" : "nav-link"}>
               Contact us
             </Link>
           </li>
