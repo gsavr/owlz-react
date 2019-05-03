@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from '../images/logo.png' 
 
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
         <Link to="/" className={window.location.pathname === "/"}>
-          <img src="./components/images/logo.png" />
+        <img className="brand-logo" src={logo} alt={"logo"}/> 
         </Link>
       </a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,10 +16,14 @@ function Nav() {
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <a className="nav-link" href="#">Features</a>
+            <Link to="/about" className={window.location.pathname === "/" ? "nav-link" : ""}>
+              About us 
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Pricing</a>
+            <Link to="/contact" className={window.location.pathname === "/" ? "nav-link" : ""}>
+              Contact us
+            </Link>
           </li>
         </ul>
         <span className="navbar-text">
