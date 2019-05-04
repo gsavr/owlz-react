@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import '../../App.css';
+import API from "../../Utils/API"
 
-class Form extends Component {
+class Register extends Component {
 
   state = {
     loggedIn: false,
@@ -14,12 +15,24 @@ class Form extends Component {
   }
 
   // function onclick login
-  login=()=>{
-    if(this.state.firstName != "a"|| this.state.lastName != "a"|| this.state.email != "a@a.com" || this.state.password != "a")
-      alert(this.state.password + this.state.email + this.state.lastName + this.state.firstName);
-    else {
-      this.setState({waitingForServer:true})
+  register=()=>{
+    
+    if(this.state.firstName !== ""|| this.state.lastName !== ""|| this.state.email !== "" || this.state.password !== "")
+    {     
+      const {firstName, lastName, email, password} = this.state;
+    const registerBody = {first_name: firstName,last_name:  lastName,email, password};
+    this.setState({waitingForServer:true}, ()=>{
+      API.registerUser(registerBody)
+      .then(()=>{
+      })
+    })
     }
+    else {
+      console.log(this.state)
+      alert(this.state.password + this.state.email + this.state.lastName + this.state.firstName)
+     console.log(this.state)
+    }
+
     
   }
 
@@ -64,7 +77,7 @@ class Form extends Component {
               <label for="InputPassword">Password</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
             </div>
-            <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn btn-primary">Submit</button>
+            <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn btn-primary">Submit</button>
           </form>
         </div>}
       </div>
@@ -73,4 +86,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default Register;

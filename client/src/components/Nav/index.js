@@ -28,7 +28,7 @@ function Nav() {
         </ul>
         <span className="navbar-text">
         <Link to="/login" className={window.location.pathname === "/login"}>
-          Connection
+          Login / Register
         </Link>
         </span>
       </div>
