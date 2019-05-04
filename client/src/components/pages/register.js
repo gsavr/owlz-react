@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import logo from '../../logo.svg';
 import '../../App.css';
 import API from "../../Utils/API"
+
 
 class Register extends Component {
 
@@ -12,6 +14,8 @@ class Register extends Component {
     email: "",
     password: "",
     waitingForServer: false,
+    redirect: false,
+    userId: ""
   }
 
   // function onclick login
@@ -19,11 +23,13 @@ class Register extends Component {
     
     if(this.state.firstName !== ""|| this.state.lastName !== ""|| this.state.email !== "" || this.state.password !== "")
     {     
-      const {firstName, lastName, email, password} = this.state;
+    const {firstName, lastName, email, password} = this.state;
     const registerBody = {first_name: firstName,last_name:  lastName,email, password};
     this.setState({waitingForServer:true}, ()=>{
       API.registerUser(registerBody)
-      .then(()=>{
+      .then((data)=>{
+        const user = data.data.id;
+        this.setState({userId:user});
       })
     })
     }
@@ -32,8 +38,13 @@ class Register extends Component {
       alert(this.state.password + this.state.email + this.state.lastName + this.state.firstName)
      console.log(this.state)
     }
+  }
 
-    
+  renderRedirect = ()=> {
+    if(this.state.userId){
+      return <Redirect to={`/dashboard/${this.state.userId}`} />
+    }
+   
   }
 
   // function onclick log out
@@ -53,7 +64,7 @@ class Register extends Component {
           <h2>Welcome to Owlz</h2>
           <p>Please Login In</p>
         </div>
-
+        {this.renderRedirect()}
         {this.state.loggedIn?<div>You are login<button onClick={this.logout}>log out</button></div>:
         <div className="container">
           <form className="form-log">
