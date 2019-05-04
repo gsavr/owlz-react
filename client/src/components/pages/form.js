@@ -9,13 +9,18 @@ class Form extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    waitingForServer: false,
   }
 
   // function onclick login
   login=()=>{
-    alert(`your user is ${this.state.firstName}`)
-    this.setState({loggedIn:true})
+    if(this.state.firstName != "a"|| this.state.lastName != "a"|| this.state.email != "a@a.com" || this.state.password != "a")
+      alert(this.state.password + this.state.email + this.state.lastName + this.state.firstName);
+    else {
+      this.setState({waitingForServer:true})
+    }
+    
   }
 
   // function onclick log out
@@ -40,23 +45,26 @@ class Form extends Component {
         <div className="container">
           <form className="form-log">
             <h1 className="text-center">Log In</h1>
+            {this.state.waitingForServer&&<div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>}
             <div className="form-group">
               <label for="InputFirstname">First Name</label>
-              <input onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="Florian"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="Florian"/>
             </div>
             <div className="form-group">
               <label for="Inputlastname">Last Name</label>
-              <input onChange={this.handleType} name="firstLast" type="text" className="form-control" id="Inputlastname" placeholder="Lahitte"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="lastName" type="text" className="form-control" id="Inputlastname" placeholder="Lahitte"/>
             </div>
             <div className="form-group">
               <label for="exampleInputEmail">Email address</label>
-              <input onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
             </div>
             <div className="form-group">
               <label for="InputPassword">Password</label>
-              <input onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
             </div>
-            <button onClick={this.login} type="submit" className="btn btn-primary">Submit</button>
+            <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn btn-primary">Submit</button>
           </form>
         </div>}
       </div>
