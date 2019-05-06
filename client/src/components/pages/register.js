@@ -8,7 +8,6 @@ import API from "../../Utils/API"
 class Register extends Component {
 
   state = {
-    loggedIn: false,
     firstName: "",
     lastName: "",
     email: "",
@@ -21,22 +20,20 @@ class Register extends Component {
   // function onclick login
   register=()=>{
     
-    if(this.state.firstName !== ""|| this.state.lastName !== ""|| this.state.email !== "" || this.state.password !== "")
-    {     
-    const {firstName, lastName, email, password} = this.state;
-    const registerBody = {first_name: firstName,last_name:  lastName,email, password};
-    this.setState({waitingForServer:true}, ()=>{
-      API.registerUser(registerBody)
-      .then((data)=>{
-        const user = data.data.id;
-        this.setState({userId:user});
-      })
-    })
+    if(this.state.firstName == ""|| this.state.lastName == ""|| this.state.email == "" || this.state.password == ""){     
+      alert("Invalid Credentials");
     }
     else {
-      console.log(this.state)
-      alert(this.state.password + this.state.email + this.state.lastName + this.state.firstName)
-     console.log(this.state)
+      const {firstName, lastName, email, password} = this.state;
+      const registerBody = {first_name: firstName,last_name:  lastName,email, password};
+      this.setState({waitingForServer:true},()=>{
+        API.registerUser(registerBody)
+        .then((data)=>{
+          console.log(data);
+          const user = data.data.id;
+          this.setState({userId:user});
+        })
+      })
     }
   }
 
@@ -49,7 +46,7 @@ class Register extends Component {
 
   // function onclick log out
   logout=()=>{
-    this.setState({loggedIn:false})
+    this.setState({waitingForServer:false})
   }
 
   handleType=(event)=>{
@@ -65,13 +62,10 @@ class Register extends Component {
           <p>Please Login In</p>
         </div>
         {this.renderRedirect()}
-        {this.state.loggedIn?<div>You are login<button onClick={this.logout}>log out</button></div>:
+  
         <div className="container">
           <form className="form-log">
-            <h1 className="text-center">Log In</h1>
-            {this.state.waitingForServer&&<div class="spinner-border text-primary" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>}
+            <h1 className="text-center">Register</h1>
             <div className="form-group">
               <label for="InputFirstname">First Name</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="Florian"/>
@@ -90,7 +84,7 @@ class Register extends Component {
             </div>
             <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn btn-primary">Submit</button>
           </form>
-        </div>}
+        </div>
       </div>
       
     );
