@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import logo from '../../logo.svg';
 import '../../App.css';
 import API from "../../Utils/API"
@@ -14,7 +14,6 @@ class Register extends Component {
     password: "",
     waitingForServer: false,
     redirect: false,
-    userId: ""
   }
 
   // function onclick login
@@ -32,17 +31,14 @@ class Register extends Component {
           console.log(data);
           const user = data.data.id;
           this.setState({userId:user});
+          this.props.onRegister(user);
+          localStorage.setItem("user", user)
+          this.props.history.push(`/dashboard/${user}`);
         })
       })
     }
   }
 
-  renderRedirect = ()=> {
-    if(this.state.userId){
-      return <Redirect to={`/dashboard/${this.state.userId}`} />
-    }
-   
-  }
 
   // function onclick log out
   logout=()=>{
@@ -61,7 +57,6 @@ class Register extends Component {
           <h2>Welcome to Owlz</h2>
           <p>Please Login In</p>
         </div>
-        {this.renderRedirect()}
   
         <div className="container">
           <form className="form-log">
@@ -91,4 +86,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);

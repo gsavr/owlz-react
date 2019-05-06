@@ -29,9 +29,9 @@ class Nav extends Component {
           </li>
         </ul>
         <span className="navbar-text">
-        <Link to="/login" className={window.location.pathname === "/login"}>
-         {this.props.waitingForServer? <span>Log Out</span>: <span>Log In</span>}
-        </Link>
+        <button onClick={this.props.onLogin} className={window.location.pathname === "/login"}>
+         {this.props.loggedIn? <span>Log Out</span>: <span>Log In</span>}
+        </button>
         </span>
       </div>
     </nav>
