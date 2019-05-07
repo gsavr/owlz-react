@@ -8,8 +8,10 @@ const apiCall = {
         return axios.get(`/api/users/${id}`)
     },
     // List of Promoter per City
-    getListPromoter : (body)=>{
-        return axios.get("api/listpromoter/:city", body) 
+    getListPromoter : (city)=>{
+        console.log(city);
+        return axios.get(`api/listpromoter/${city}`) 
+
     }
 }
 export default apiCall;

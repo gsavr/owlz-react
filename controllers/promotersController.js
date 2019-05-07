@@ -4,7 +4,7 @@ var db = require("../models");
 // Routes
 //  =============================================================
 module.exports = {
-  listPromoter: function(req,res){
+  listpromoter: function(req,res){
     db.Promoter.findAll({
         where:{
             city: req.params.city

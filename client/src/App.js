@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state ={
-    loggedIn: localStorage.getItem("user"),
+    loggedIn: localStorage.getItem("user")? true: false,
     logingIn:false
   }
   render() {
@@ -22,8 +22,9 @@ class App extends Component {
           {!this.state.logingIn&&<Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
-            {this.state.loggedIn && <Route path="/dashboard/:id" component={Dashboard} />}
             <Route path="listpromoter/:city" component={Listpromoter} />
+            {this.state.loggedIn && <Route path="/dashboard/:id" component={Dashboard} />}
+            
             <Route component={Home} />
           </Switch>}
       </div>
