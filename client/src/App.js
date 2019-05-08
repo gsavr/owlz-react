@@ -22,7 +22,7 @@ class App extends Component {
           {!this.state.logingIn&&<Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
-            <Route path="listpromoter/:city" component={Listpromoter} />
+            <Route path="/listpromoter/:city" component={Listpromoter} />
             {this.state.loggedIn && <Route path="/dashboard/:id" component={Dashboard} />}
             
             <Route component={Home} />

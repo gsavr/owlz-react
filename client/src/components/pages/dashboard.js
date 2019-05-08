@@ -13,7 +13,7 @@ export default class dashboard extends Component {
         const id =this.props.match.params.id
        // alert(id);
         API.getUserById(id).then((data)=> {
-            console.log(id)
+            console.log(data)
             const user = data.data;
             this.setState({ user });
         });

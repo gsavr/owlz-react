@@ -4,6 +4,15 @@ var db = require("../models");
 // Routes
 //  =============================================================
 module.exports = {
+  
+  findAll: function(req,res){
+    db.Promoter
+      .findAll({})
+      .then(function(data) {
+        res.json(data);
+      });
+  },
+
   listpromoter: function(req,res){
     db.Promoter.findAll({
         where:{
@@ -12,6 +21,7 @@ module.exports = {
     }).then(function(data) {
       res.json(data);
      });
+
   },
   findOne: function(req, res) {
     db.Promoter.findOne({
