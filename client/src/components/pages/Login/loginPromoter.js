@@ -64,6 +64,7 @@ class LoginPromoter extends Component {
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
             </div>
             <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={this.props.registerPromoter} type="button" className="btn btn-outline-secondary">Register Promoter</button>
           </form>
         </div>
       </div>

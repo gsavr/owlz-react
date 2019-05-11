@@ -14,11 +14,11 @@ class App extends Component {
     logingIn:false
   }
 
+  // User Login 
   onRegister=() =>{
-    this.setState({loggedIn: true, logingIn: false})
+    this.setState({loggedIn: true, logingIn: false});
   }
   
-
   render() {
     return (
       <Router>

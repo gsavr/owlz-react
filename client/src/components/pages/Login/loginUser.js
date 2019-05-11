@@ -17,16 +17,13 @@ class LoginUser extends Component {
         
         event.preventDefault();
 
-        if(this.state.email == "" || this.state.password == ""){     
+        if(this.state.email === "" || this.state.password === ""){     
           alert("Invalid Credentials");
         }
         else {
           const {email, password} = this.state;
           const registerBody = {email, password};
           this.setState({waitingForServer:true},()=>{
-
-            
-
             API.loginUser(registerBody)
             .then((data)=>{
               console.log(data);
@@ -65,7 +62,9 @@ class LoginUser extends Component {
                     <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
                     </div>
                     <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn btn-primary">Submit</button>
+                    <button onClick={this.props.registerUser} type="button" className="btn btn-outline-success">Register User</button>
                 </form>
+                
             </div>
         </div>
         );
