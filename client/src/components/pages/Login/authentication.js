@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter, Link, Route, Router, Switch } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import logo from '../../../logo.svg';
 import '../../../App.css';
-import API from "../../../Utils/API"
 import LoginPromoter from './loginPromoter';
 import LoginUser from './loginUser';
 import Register from './register';
@@ -57,7 +56,7 @@ class Authentication extends Component {
       return <Register logingInUser={this.logingInUser} onRegister={ this.props.onRegister } />
     }
     else{
-      return <RegisterPromoter logingInPromoter={this.logingInPromoter} />
+      return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} />
     }
   }
   

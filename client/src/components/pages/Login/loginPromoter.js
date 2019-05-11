@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter, Link } from 'react-router-dom';
-import logo from '../../../logo.svg';
+import { withRouter} from 'react-router-dom';
 import '../../../App.css';
 import API from "../../../Utils/API"
 
@@ -16,28 +15,30 @@ class LoginPromoter extends Component {
     redirect: false,
   }
 
-  // function onclick login
-  register=()=>{
-    
-    if(this.state.firstName == ""|| this.state.lastName == ""|| this.state.email == "" || this.state.password == ""){     
-      alert("Invalid Credentials");
-    }
-    else {
-      const {firstName, lastName, email, password} = this.state;
-      const registerBody = {first_name: firstName,last_name:  lastName,email, password};
-      this.setState({waitingForServer:true},()=>{
-        API.registerUser(registerBody)
-        .then((data)=>{
-          console.log(data);
-          const user = data.data.id;
-          this.setState({userId:user});
-          this.props.onRegister(user);
-          localStorage.setItem("user", user)
-          this.props.history.push(`/dashboard/${user}`);
+    // function onclick login
+    login=()=>{
+        
+      event.preventDefault();
+
+      if(this.state.email === "" || this.state.password === ""){     
+        alert("Invalid Credentials");
+      }
+      else {
+        const {email, password} = this.state;
+        const registerBody = {email, password};
+        this.setState({waitingForServer:true},()=>{
+          API.loginPromoter(registerBody)
+          .then((data)=>{
+            console.log(data);
+            const promoter = data.data.id;
+            this.setState({promoterId:promoter});
+            this.props.onRegister(promoter);
+            localStorage.setItem("promoter", promoter)
+            this.props.history.push(`/dashboard/promoter/${promoter}`);
+          })
         })
-      })
+      }
     }
-  }
 
 
   // function onclick log out
@@ -63,7 +64,7 @@ class LoginPromoter extends Component {
               <label for="InputPassword">Password</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
             </div>
-            <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn btn-primary">Submit</button>
+            <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn btn-primary">Submit</button>
             <button onClick={this.props.registerPromoter} type="button" className="btn btn-outline-secondary">Register Promoter</button>
           </form>
         </div>

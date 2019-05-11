@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {withRouter, Link } from 'react-router-dom';
+import {withRouter } from 'react-router-dom';
 import '../../../App.css';
 import API from "../../../Utils/API"
-import axios from 'axios';
 
 
 class LoginUser extends Component {

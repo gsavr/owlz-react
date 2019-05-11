@@ -23,6 +23,16 @@ module.exports = {
      });
 
   },
+  login: function(req, res) {
+    db.Promoter.findOne({
+      where: {
+        email: req.body.email,
+        password: req.body.password
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  },
   findOne: function(req, res) {
     db.Promoter.findOne({
       where: {
@@ -36,10 +46,11 @@ module.exports = {
     db.Promoter.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
+        password: req.body.password,
         handle:req.body.handle,
-        descriptions:req.body.about,
+        descriptions:req.body.descriptions,
         city:req.body.city,
-        languages:req.body.language,
+        languages:req.body.languages,
         phone_number: req.body.phone_number,
         email: req.body.email,
         instagram:req.body.instagram,
