@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Slick from '../../Carrousel/slick';
 import Footer from '../../Footer/footer';
 import '../../Footer/footer.css'

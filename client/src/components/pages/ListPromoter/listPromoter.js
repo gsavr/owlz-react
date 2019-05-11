@@ -31,7 +31,7 @@ class Listpromoter extends Component {
       Promoter.push(
         <div className="row card-profil">
             <div className="col-md-3">
-              <img src={this.state.promoters[i].profile_pic || "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0ODUwMjQ0NjIwNzI0MDAx/chris-hemsworth-poses-during-a-photo-call-for-thor-ragnarok-on-october-15-2017-in-sydney-australia-photo-by-mark-metcalfe_getty-images-for-disney-square.jpg"}></img>
+              <img src={this.state.promoters[i].profile_pic} alt="promoter"></img>
             </div>
             <div className="col-md-9">
                 <div className="description">

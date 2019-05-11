@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter, Link, Route, Router, Switch } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import logo from '../../../logo.svg';
 import '../../../App.css';
-import API from "../../../Utils/API"
 import LoginPromoter from './loginPromoter';
 import LoginUser from './loginUser';
 import Register from './register';
@@ -13,13 +12,9 @@ class Authentication extends Component {
   state = {
     email: "",
     password: "",
-    loggedInUser: false,
-    loggedInPromoter: false,
-    logingInUser: true,
-    logingInPromoter: false
-    
+    currentComponent: "loginUser",
   }
-
+  
 
   // function onclick log out
   logout=()=>{
@@ -29,6 +24,42 @@ class Authentication extends Component {
   handleType=(event)=>{
     this.setState({[event.target.name]: event.target.value})
   }
+
+  logingInPromoter=(event)=>{
+    event.preventDefault();
+    this.setState({currentComponent: "loginPromoter"}); 
+  }
+
+  logingInUser=(event)=>{
+    event.preventDefault();
+    this.setState({currentComponent: "loginUser"}); 
+  }
+  registerUser=(event)=>{
+    event.preventDefault();
+    this.setState({currentComponent: "registerUser"}); 
+  }
+
+  registerPromoter=(event)=>{
+    event.preventDefault();
+    this.setState({currentComponent: "registerPromoter"}); 
+  }
+
+
+  display=()=>{
+    if(this.state.currentComponent === "loginUser"){
+      return <LoginUser registerUser={this.registerUser} onRegister={ this.props.onRegister } />
+    }
+    else if(this.state.currentComponent === "loginPromoter"){
+      return <LoginPromoter registerPromoter={this.registerPromoter}  onRegister={ this.props.onRegister }/>
+    }
+    else if(this.state.currentComponent === "registerUser"){
+      return <Register logingInUser={this.logingInUser} onRegister={ this.props.onRegister } />
+    }
+    else{
+      return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} />
+    }
+  }
+  
 
   render() {
     return (
@@ -41,10 +72,10 @@ class Authentication extends Component {
   
         <div className="container">
 
-        <LoginPromoter/>
-        <LoginUser  onRegister={this.onRegister}/>
-        <Register/>
-        <RegisterPromoter/>
+        <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn btn-outline-primary">Promoter</button>
+        <button onClick={this.logingInUser} type="button" className="btn btn-outline-success">User</button>
+        
+        {this.display()}
         
         </div>
       </div>

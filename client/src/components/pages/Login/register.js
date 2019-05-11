@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter, Link } from 'react-router-dom';
-import logo from '../../../logo.svg';
+import {withRouter } from 'react-router-dom';
 import '../../../App.css';
 import API from "../../../Utils/API"
 
@@ -19,7 +18,7 @@ class Register extends Component {
   // function onclick login
   register=()=>{
     
-    if(this.state.firstName == ""|| this.state.lastName == ""|| this.state.email == "" || this.state.password == ""){     
+    if(this.state.firstName === ""|| this.state.lastName === ""|| this.state.email === "" || this.state.password === ""){     
       alert("Invalid Credentials");
     }
     else {
@@ -72,6 +71,7 @@ class Register extends Component {
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
             </div>
             <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={this.props.logingInUser} type="button" className="btn btn-outline-success">Login User</button>
           </form>
         </div>
       </div>
