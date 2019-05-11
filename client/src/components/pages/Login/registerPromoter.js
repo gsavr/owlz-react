@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
-import logo from '../../logo.svg';
-import '../../App.css';
-import API from "../../Utils/API"
+import { Redirect, withRouter, Link } from 'react-router-dom';
+import logo from '../../../logo.svg';
+import API from "../../../Utils/API"
 
 
-class Register extends Component {
+class Registerpromoter extends Component {
 
   state = {
     firstName: "",
@@ -52,15 +51,9 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <div className="App App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Owlz</h2>
-          <p>Please Login In</p>
-        </div>
-  
         <div className="container">
           <form className="form-log">
-            <h1 className="text-center">Register</h1>
+            <h1 className="text-center">Register Promoter</h1>
             <div className="form-group">
               <label for="InputFirstname">First Name</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="Florian"/>
@@ -86,4 +79,4 @@ class Register extends Component {
   }
 }
 
-export default withRouter(Register);
+export default withRouter(Registerpromoter);

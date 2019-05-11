@@ -1,0 +1,66 @@
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////// Card Profil /////////////////////////////////////////////// */
+.card-profil{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    border-radius: 8px;
+    padding: 20px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  }
+  
+  .card-profil img{
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  }
+  
+  .description{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .description b{
+    font-size: 23px;
+  }
+  
+  .description h4{
+    margin-top: 20px;
+  }
+  
+  .line-hr{
+    width: 14%;
+    margin-left: 0px;
+    border: 1px solid;
+    margin-top: -5px;
+  }
+  
+  .description li{
+    list-style-type: none;
+  }
+  
+  .fa-instagram , .fa-envelope, .fa-mobile{
+    font-size: 30px;
+  } 
+  
+  .float-right span{
+    padding-right: 20px;
+  }
+  
+  .footer-description{
+    width: 93%;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .footer-description .li-description{
+    padding-right: 20px;
+  }

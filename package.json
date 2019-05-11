@@ -29,10 +29,12 @@
   "homepage": "https://github.com/captainflo/owlz-react#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "if-env": "^1.0.4",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "mysql2": "^1.6.5",
+    "react-slick": "^0.24.0",
     "sequelize": "^5.6.1",
-    "if-env": "^1.0.4"
+    "slick-carousel": "^1.8.1"
   }
 }

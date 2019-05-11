@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
-import '../../App.css';
-import API from '../../Utils/API';
+import logo from '../../../logo.svg';
+import API from '../../../Utils/API';
+import './dashboard.css';
+
 
 
 export default class dashboard extends Component {

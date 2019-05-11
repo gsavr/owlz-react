@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
-import '../../App.css';
-import API from "../../Utils/API"
+import Slick from '../../Carrousel/slick';
+import Footer from '../../Footer/footer';
+import '../../Footer/footer.css'
+import './home.css';
+import API from "../../../Utils/API"
 
 
 class Home extends Component {
@@ -36,17 +39,23 @@ class Home extends Component {
   
   render() {
     return (
+      <div>
       <div className="jumbotron jumbotron-fluid">
         <div className="container text-center">
-          <h1 className="display-4">Form is Here</h1>
-          <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          <h1 className="display-4">Welcome to Owlz</h1>
+          <p className="lead">Find Your Promoter.</p>
           <form className="form-inline">
-          <div className="form-group mx-sm-3 mb-2">
+          <div className="form-row">
               <input  onChange={this.handleType} name="city" type="text" className="form-control" id="city" placeholder="Miami"/>
+              <button onClick={this.searchPromoter} className="btn btn-primary mb-2">Search</button>
           </div>
-          <button onClick={this.searchPromoter} class="btn btn-primary mb-2">Search</button>
-        </form>
+          </form>
         </div>
+      </div>
+      <div className="text-center">
+        <Slick/>
+      </div>
+      <Footer/>
       </div>
     );
   }

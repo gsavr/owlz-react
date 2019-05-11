@@ -5,13 +5,12 @@ router.route("/")
 .get(promotersController.findAll)
 .post(promotersController.create);
 
-// Matches with "/api/promoters/:id
+
 router
   .route("/city/:city")
   .get(promotersController.listpromoter)
-  .put(promotersController.update)
-  .delete(promotersController.remove);
 
+// Matches with "/api/promoters/:id
 //router
 //   .route("/:id")
 //   .get(promotersController.findOne)

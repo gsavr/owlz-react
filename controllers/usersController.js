@@ -18,6 +18,16 @@ module.exports = {
       res.json(data);
     });
   },
+  login: function(req, res) {
+    db.User.findOne({
+      where: {
+        email: req.body.email,
+        password: req.body.password
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  },
   create: function(req, res) {
     db.User.create(req.body).then(function(data) {
       res.json(data);

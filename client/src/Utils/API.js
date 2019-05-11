@@ -10,6 +10,10 @@ const apiCall = {
     // List of Promoter per City
     getListPromoter : (city)=>{
         return axios.get(`/api/promoters/city/${city}`) 
+    },
+    // Login User
+    loginUser : (body)=>{
+        return axios.post(`/api/users/login`,body) 
     }
 }
 export default apiCall;
