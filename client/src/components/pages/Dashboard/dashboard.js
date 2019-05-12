@@ -31,7 +31,7 @@ export default class dashboard extends Component {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="card-profil">
-                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0ODUwMjQ0NjIwNzI0MDAx/chris-hemsworth-poses-during-a-photo-call-for-thor-ragnarok-on-october-15-2017-in-sydney-australia-photo-by-mark-metcalfe_getty-images-for-disney-square.jpg" alt="promoter"></img>
+                                <img src={this.state.user.profile_pic} alt="user"></img>
                                 <p><i class="fab fa-instagram"></i> Instagram</p>
                                 <p><i class="fas fa-envelope"></i> {this.state.user.email}</p>
                                 <p><i class="fas fa-mobile"></i> 786 212 3888</p>

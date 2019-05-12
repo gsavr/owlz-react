@@ -47,7 +47,7 @@ class Home extends Component {
           <form className="form-inline">
           <div className="form-row">
               <input  onChange={this.handleType} name="city" type="text" className="form-control" id="city" placeholder="Miami"/>
-              <button onClick={this.searchPromoter} className="btn btn-primary mb-2">Search</button>
+              <button onClick={this.searchPromoter} className="btn btn-outline-primary mb-2">Search</button>
           </div>
           </form>
         </div>

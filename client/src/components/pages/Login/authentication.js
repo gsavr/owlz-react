@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom';
-import logo from '../../../logo.svg';
 import '../../../App.css';
+import './authentication.css';
 import LoginPromoter from './loginPromoter';
 import LoginUser from './loginUser';
 import Register from './register';
@@ -55,7 +55,7 @@ class Authentication extends Component {
     else if(this.state.currentComponent === "registerUser"){
       return <Register logingInUser={this.logingInUser} onRegister={ this.props.onRegister } />
     }
-    else{
+    else if(this.state.currentComponent === "registerPromoter"){
       return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} />
     }
   }
@@ -65,18 +65,20 @@ class Authentication extends Component {
     return (
 
       <div>
-        <div className="App App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Owlz</h2>
+        <div className="App App-login">
+          <h2>Login / Register to Owlz</h2>
+          <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="log-type">
+            <i class="fas fa-user-tie"></i> 
+            <p>Promoter</p>
+           </button>
+          <button onClick={this.logingInUser} type="button" className="log-type">
+            <i class="fas fa-users"></i> 
+             <p>User</p>
+          </button>
         </div>
   
         <div className="container">
-
-        <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn btn-outline-primary">Promoter</button>
-        <button onClick={this.logingInUser} type="button" className="btn btn-outline-success">User</button>
-        
-        {this.display()}
-        
+          {this.display()}
         </div>
       </div>
 

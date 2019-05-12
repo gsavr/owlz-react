@@ -29,13 +29,13 @@ class Nav extends Component {
             </Link>
           </li>
         </ul>
-        <span className="navbar-text">
-          {!this.props.loggedIn&&<button onClick={this.props.onLogin} className={window.location.pathname === "/login"}>
+        <span className="navbar-text ">
+          {!this.props.loggedIn&&<button className="btn btn-outline-success" onClick={this.props.onLogin} >
             log in
             </button>}
-        {this.props.loggedIn&&<button onClick={this.props.onLogout} className={window.location.pathname === "/login"}>
-        log out
-        </button>}
+          {this.props.loggedIn&&<button onClick={this.props.onLogout} className="btn btn-outline-success">
+             log out
+          </button>}
         </span>
       </div>
     </nav>
