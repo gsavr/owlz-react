@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import logo from '../images/logo.png';
+import logo from '../images/owl.png';
 import './nav.css';
 
 
@@ -29,13 +29,13 @@ class Nav extends Component {
             </Link>
           </li>
         </ul>
-        <span className="navbar-text">
-          {!this.props.loggedIn&&<button onClick={this.props.onLogin} className={window.location.pathname === "/login"}>
+        <span className="navbar-text ">
+          {!this.props.loggedIn&&<button className="btn-login" onClick={this.props.onLogin} >
             log in
             </button>}
-        {this.props.loggedIn&&<button onClick={this.props.onLogout} className={window.location.pathname === "/login"}>
-        log out
-        </button>}
+          {this.props.loggedIn&&<button onClick={this.props.onLogout} className="btn-login">
+             log out
+          </button>}
         </span>
       </div>
     </nav>

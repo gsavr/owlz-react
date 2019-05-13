@@ -40,14 +40,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <div className="jumbotron jumbotron-fluid">
+      <div className="jumbotron jumbotron-fluid fadeIn">
         <div className="container text-center">
           <h1 className="display-4">Welcome to Owlz</h1>
           <p className="lead">Find Your Promoter.</p>
           <form className="form-inline">
           <div className="form-row">
               <input  onChange={this.handleType} name="city" type="text" className="form-control" id="city" placeholder="Miami"/>
-              <button onClick={this.searchPromoter} className="btn btn-primary mb-2">Search</button>
+              <button onClick={this.searchPromoter} className="btn btn-login mb-2">Search</button>
           </div>
           </form>
         </div>

@@ -28,6 +28,11 @@ module.exports = function(sequelize, DataTypes) {
       created:{
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
+      },
+      profile_pic: {
+        type: DataTypes.TEXT,
+        defaultValue: '/assets/images/profileUser.png',
+        len: [1,200]
       }
     },{
       timestamps: false,

@@ -3,3 +3,12 @@
 .brand-logo{
     width: 80px;
   }
+
+  .navbar{
+    -webkit-box-shadow: 2px 0px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 0px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 2px 0px 5px 1px rgba(0,0,0,0.75);
+  }
+  .navbar-light:hover .navbar-nav:hover .nav-link:hover {
+    text-decoration: underline;
+}

@@ -50,7 +50,7 @@ class LoginUser extends Component {
         return (
         <div>
             <div>
-                <form className="form-log">
+                <form className="form-log slideUp">
                     <h1 className="text-center">Login User</h1>
                     <div className="form-group">
                     <label for="exampleInputEmail">Email address</label>
@@ -60,8 +60,8 @@ class LoginUser extends Component {
                     <label for="InputPassword">Password</label>
                     <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password"/>
                     </div>
-                    <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn btn-primary">Submit</button>
-                    <button onClick={this.props.registerUser} type="button" className="btn btn-outline-success">Register User</button>
+                    <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn-login">Submit</button>
+                    <button onClick={this.props.registerUser} type="button" className="btn-login float-right">Register User <i className="fas fa-user-plus"></i></button>
                 </form>
                 
             </div>

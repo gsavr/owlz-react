@@ -9,16 +9,21 @@ const apiCall = {
     registerPromoter: (body)=>{
         return axios.post("/api/promoters/", body)
      },
-
-
+    
+    // Find User By Id
     getUserById : (id)=>{
         return axios.get(`/api/users/${id}`)
     },
+    // Find Promoter By Id
     getPromoterById : (id)=>{
         return axios.get(`/api/promoters/${id}`)
     },
 
-    
+    // Update User by Id
+    UpdateUser:(id,body)=>{
+        return axios.put(`/api/users/${id}`, body)
+    },
+
     // List of Promoter per City
     getListPromoter : (city)=>{
         return axios.get(`/api/promoters/city/${city}`) 
