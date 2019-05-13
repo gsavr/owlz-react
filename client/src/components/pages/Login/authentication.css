@@ -1,7 +1,9 @@
 /*  */
 .jumbotron-auth {
     height: 250px;
-    background-image: url("../../images/sf-night.jpg")
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/luxury-parties.jpg");
+    background-position-y: -257px;
+    opacity: 2;
 }
 .log-type {
     width: 90px;
