@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../../logo.svg';
 import API from '../../../Utils/API';
 import './dashboard.css';
 import Edit from './editUser';
@@ -31,21 +30,24 @@ export default class dashboard extends Component {
     render() {
         return (
             <div>
-                <div className="App-header"><br></br>
-                    <h2>Welcome {this.state.user.first_name} {this.state.user.last_name}<img src={logo} className="App-logo" alt="logo" /></h2>
-                </div>
+            <div className="jumbotron jumbotron-fluid jumbotron-dash slideRight">
+            <div className="container text-center">
+            <h2>Welcome</h2> 
+            <h2>{this.state.user.first_name} {this.state.user.last_name}</h2>
+            </div>
+            </div>
                 {/* {JSON.stringify(this.state.user)} */}
                 <div className="container-fuild">
                     <div className="row">
                         <div className="col-md-4">
                             {!this.state.edit&&<div className="card-profil slideRight">
                                 <img src={this.state.user.profile_pic} alt="user"></img>
+                                <button onClick={this.edit} type="button" className="btn-login float-right">Edit {this.state.user.first_name} <i class="fas fa-user-edit"></i></button>
                                 <p><i className="fab fa-instagram"></i> Instagram</p>
                                 <p><i className="fas fa-envelope"></i> {this.state.user.email}</p>
                                 <p><i className="fas fa-mobile"></i> 786 212 3888</p>
-                                <button onClick={this.edit} type="button" className="btn-login float-right">Register User <i className="fas fa-user-plus"></i></button>
                             </div>}
-                            {this.state.edit&&<Edit componentDidMount={this.state.user}/>}
+                            {this.state.edit&&<Edit onUpdate={(user)=>{this.setState({user, edit: false})}} userData={this.state.user}/>}
                         </div>
                         <div className="col-md-8 slideLeft">
                             <div className="card-profil">

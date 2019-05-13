@@ -24,3 +24,11 @@
     -o-transition: .1s;
     transition: .1s;
   }
+
+  .jumbotron-dash {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/miamiSunset.jpg");
+    height: 200px;
+    background-position-y: -257px;
+    opacity: 2;
+    color: #fff;
+  }

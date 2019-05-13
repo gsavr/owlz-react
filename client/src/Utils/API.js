@@ -20,8 +20,8 @@ const apiCall = {
     },
 
     // Update User by Id
-    UpdateUserById: (body)=>{
-        return axios.put(`/api/users/`, body)
+    UpdateUser:(id,body)=>{
+        return axios.put(`/api/users/${id}`, body)
     },
 
     // List of Promoter per City
