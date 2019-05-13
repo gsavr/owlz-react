@@ -1,11 +1,13 @@
-.log-type{
-    width: 120px;
-    border: 4px solid #fff;
-    background-color: #0084b4;
-
-    color: #fff;
+/*  */
+.jumbotron-auth {
+    height: 250px;
+    background-image: url("../../images/sf-night.jpg")
+}
+.log-type {
+    width: 90px;
+    border: 4px solid #484848;
+    color: #282828;
     font-size: 20px;
-    height: 120px;
     border-radius: 60px;
     margin-right: 20px;
     margin-left: 20px;
@@ -14,7 +16,7 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
-.log-type:hover{
+.log-type:hover, .btn-login:hover {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
@@ -26,10 +28,9 @@
 }
 
 .App-login {
-    background: #2980B9;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     height: 200px;
     padding: 20px;
     color: white;
@@ -38,3 +39,24 @@ background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+
 *:focus {
     outline: none !important;
 }
+
+
+/* Buton login */
+.btn-login {
+    padding: 7px;
+    background-color: #fff; 
+    border-radius: 10px;
+    border: 1px solid #282828;
+    margin-right: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btn-login:hover {
+    padding: 10px;
+    background-color: #282828; 
+    border-radius: 10px;
+    margin-right: 20px;
+    color: #fff;
+}
+
+

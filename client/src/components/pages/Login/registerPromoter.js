@@ -56,7 +56,7 @@ class Registerpromoter extends Component {
     return (
       <div>
         <div className="container">
-          <form className="form-log">
+          <form className="form-log slideUp">
             <h1 className="text-center">Register Promoter</h1>
             <div className="form-group">
               <label for="InputFirstname">First Name</label>
@@ -84,19 +84,26 @@ class Registerpromoter extends Component {
             </div>
             <div className="form-group">
               <label for="InputPassword">City</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="city" type="text" className="form-control" id="InputCity" placeholder="I'm the best"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="city" type="text" className="form-control" id="InputCity" placeholder="Miami"/>
             </div>
             <div className="form-group">
               <label for="InputPassword">Language</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="language" type="text" className="form-control" id="InputLanguage" placeholder="I'm the best"/>
+              <select disabled={this.state.waitingForServer} onChange={this.handleType} name="language" type="text" className="form-control" id="InputLanguage">
+                <option value="" default>Your Language</option>
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Spanish">French</option>
+                <option value="Chinese">Chinese</option>
+              </select>
+             
             </div>
             <div className="form-group">
               <label for="InputPassword">Phone</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder="I'm the best"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder="+786 212 3666"/>
             </div>
             
-            <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn btn-primary">Submit</button>
-            <button onClick={this.props.logingInPromoter} name="loginPromoter" type="button" className="btn btn-outline-primary">Login Promoter</button>
+            <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn-login">Submit</button>
+            <button onClick={this.props.logingInPromoter} name="loginPromoter" type="button" className="btn-login float-right">Login Promoter <i className="fas fa-user-tie"></i></button>
           </form>
         </div>
       </div>

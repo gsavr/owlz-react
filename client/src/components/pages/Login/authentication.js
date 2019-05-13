@@ -65,23 +65,25 @@ class Authentication extends Component {
     return (
 
       <div>
-        <div className="App App-login">
-          <h2>Login / Register to Owlz</h2>
-          <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="log-type">
-            <i class="fas fa-user-tie"></i> 
-            <p>Promoter</p>
-           </button>
-          <button onClick={this.logingInUser} type="button" className="log-type">
-            <i class="fas fa-users"></i> 
-             <p>User</p>
-          </button>
+        <div className="jumbotron jumbotron-fluid jumbotron-auth slideRight">
+          <div className="container text-center">
+            <h1 className="display-4">Register / Login</h1>
+            <form className="form-inline">
+            <div className="form-row">
+                <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn-login">
+                Promoter <i class="fas fa-user-tie"></i> 
+            </button>
+            <button onClick={this.logingInUser} type="button" className="btn-login">
+              User <i class="fas fa-users"></i>  
+            </button>
+            </div>
+            </form>
+          </div>
         </div>
-  
         <div className="container">
           {this.display()}
         </div>
       </div>
-
     );
   }
 }

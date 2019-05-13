@@ -30,10 +30,10 @@ class Nav extends Component {
           </li>
         </ul>
         <span className="navbar-text ">
-          {!this.props.loggedIn&&<button className="btn btn-outline-success" onClick={this.props.onLogin} >
+          {!this.props.loggedIn&&<button className="btn-login" onClick={this.props.onLogin} >
             log in
             </button>}
-          {this.props.loggedIn&&<button onClick={this.props.onLogout} className="btn btn-outline-success">
+          {this.props.loggedIn&&<button onClick={this.props.onLogout} className="btn-login">
              log out
           </button>}
         </span>

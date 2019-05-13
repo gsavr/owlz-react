@@ -10,6 +10,7 @@
   
   .jumbotron h1{
     color: #fff;
+    margin-bottom: 30px;
   }
   
   .jumbotron p{
@@ -22,3 +23,4 @@
   .form-inline{
     display: inline-flex;
   }
+
