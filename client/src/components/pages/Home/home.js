@@ -40,7 +40,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <div className="jumbotron jumbotron-fluid">
+      <div className="jumbotron jumbotron-fluid fadeIn">
         <div className="container text-center">
           <h1 className="display-4">Welcome to Owlz</h1>
           <p className="lead">Find Your Promoter.</p>
