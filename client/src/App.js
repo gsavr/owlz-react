@@ -26,6 +26,7 @@ class App extends Component {
       <div>
           <Nav onNavigation={()=> this.setState({logingIn: false})} loggedIn={this.state.loggedIn} onLogin={()=> this.setState({logingIn: true})} 
            onLogout={()=>{ this.setState({loggedIn: false})
+           window.location.href = '/';
            localStorage.clear()}}/>
           {this.state.logingIn && <Authentication onRegister={this.onRegister} />}
           {!this.state.logingIn &&<Switch>
