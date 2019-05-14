@@ -23,7 +23,7 @@ class MultipleItems extends React.Component {
           slidesToScroll: 3,
         };
         return (
-          <div className="container slick">
+          <div className="slick">
             <h1> Experience VIP </h1>
             <Slider {...settings}>
               <div>

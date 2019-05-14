@@ -1,0 +1,38 @@
+.jumbotron-about {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/luxury-party.jpg") !important;
+    height: 250px !important;
+    background-position-y: -257px;
+    opacity: 2;
+    color: red;
+  }
+
+  .text-about{
+    margin-bottom: 80px;
+  }
+  .text-about h1{
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .image-about img{
+    margin-top: 13%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .image-about img{
+        margin-top: 0%;
+        margin-bottom: 20px;
+    }
+
+    .barre {
+        margin-top: 30px;
+        margin-bottom: -50px;
+    }
+  }

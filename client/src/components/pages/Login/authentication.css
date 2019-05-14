@@ -67,4 +67,21 @@
     color: #fff;
 }
 
+@media only screen and (max-width: 600px) {
+    .jumbotron-auth {
+        height: auto;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/media/luxury-parties.117f7395.jpg);
+        background-position-y: -0px;
+        opacity: 2;
+    }
+    .jumbotron-auth h1{
+        background: none;
+    }
+    .form-log {
+        width: 100%;
+    }
+  }
+
+
+
 

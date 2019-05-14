@@ -6,6 +6,7 @@ import '../../Footer/footer.css'
 import './home.css';
 import API from "../../../Utils/API"
 import Miami1 from '../../images/story.jpg';
+import Barre from '../../images/barre.png';
 
 
 class Home extends Component {
@@ -53,20 +54,42 @@ class Home extends Component {
           </form>
         </div>
       </div>
-      <div ClassName="ourConcept">
+      <div className="container">
+      <div className="ourConcept">
         <h1 className="text-center">Our Concept</h1>
         <div className="row">
           <div className="col-md-6">
-            <div className='image-concept'>
+            <div className='image-concept slideRight'>
               <img src={Miami1} alt="Logo" />
             </div>
           </div>
           <div className="col-md-6">
-
+            <div className='text-concept slideLeft'>
+              <ul>
+                <li>
+                  <h5><i className="fas fa-check"></i> Connect</h5>
+                  <p>Connect with a VIP Liaison in the city you are traveling to.</p>
+                </li>
+                <li>
+                  <h5> <i className="fas fa-check"></i> Book</h5>
+                  <p>Explore what the city has to offer creating the perfect itinerary.</p>
+                </li>
+                <li>
+                  <h5><i className="fas fa-check"></i> Experience</h5>
+                  <p>Experience the city like you never have before with an insider guiding you every step of the way</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+      <div className="barre">
+        <img src={Barre} alt="Logo" />
+      </div>
+      
+      </div>
 
+      
       <div className="text-center">
         <Slick/>
       </div>
