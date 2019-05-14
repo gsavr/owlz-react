@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import {withRouter } from 'react-router-dom';
 import API from '../../../Utils/API';
 import './dashboard.css';
@@ -12,13 +13,16 @@ class Edit extends Component {
         first_name: this.props.userData.last_name,
         password: this.props.userData.password,
         email: this.props.userData.email,
-        waitingForServer: false
+        phone: this.props.userData.phone,
+        profile_pic: this.props.userData.profile_pic,
+        waitingForServer: false,
+        picOk: false
     }
     
     edit=()=>{
         event.preventDefault();
-        const {userId, last_name, first_name, email, password} = this.state;
-        const registerBody = {id: userId, first_name,last_name, email, password};
+        const {userId, last_name, first_name, email, password,phone, profile_pic} = this.state;
+        const registerBody = {id: userId, first_name,last_name, email, password, profile_pic,phone};
         console.log(registerBody);
         // const id = this.state.userId;
         this.setState({waitingForServer:true},()=>{
@@ -37,7 +41,23 @@ class Edit extends Component {
         this.setState({[event.target.name]: event.target.value})
       }
 
+    showWidget = () =>{
+        event.preventDefault();
+        window.cloudinary.openUploadWidget({
+            cloudName: "gsafl",
+            uploadPreset: "m48qyart",
+            sources: [ 'local', 'url', 'instagram']},
+            (error, result) => {
+                if (result.event === "success") { //if (result && result.event === "success")
+                this.setState({picOk: true})
+                this.state.profile_pic = result.info.url
+                };
+                }
+        )
+    }
+
     render() {
+        
         return (
             <div>
                 <form className="form-log slideUp">
@@ -58,6 +78,14 @@ class Edit extends Component {
                     <div className="form-group">
                         <label for="InputPassword">Last Name</label>
                         <input  onChange={this.handleType} name="last_name" type="text" className="form-control" id="InputFirstLast" placeholder={this.props.userData.last_name}/>
+                    </div>
+                    <div className="form-group">
+                        <label for="InputPassword">Phone</label>
+                        <input  onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder={this.props.userData.phone}/>
+                    </div>
+                    <div className="form-group">
+                        <label for="InputPassword">Image</label><br></br>
+                        <button onClick={this.showWidget} className="btn-login">{this.state.picOk&&<i class="far fa-check-square"></i>} Upload Picture <i class="fas fa-image"></i></button>
                     </div>
                     <button  onClick={this.edit} type="submit" className="btn-login">Submit</button>
                 </form>

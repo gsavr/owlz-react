@@ -43,17 +43,13 @@ export default class dashboard extends Component {
                             {!this.state.edit&&<div className="card-profil slideRight">
                                 <img src={this.state.user.profile_pic} alt="user"></img>
                                 <button onClick={this.edit} type="button" className="btn-login float-right">Edit {this.state.user.first_name} <i class="fas fa-user-edit"></i></button>
-                                <p><i className="fab fa-instagram"></i> Instagram</p>
                                 <p><i className="fas fa-envelope"></i> {this.state.user.email}</p>
-                                <p><i className="fas fa-mobile"></i> 786 212 3888</p>
+                                <p><i className="fas fa-mobile"></i> {this.state.user.phone}</p>
                             </div>}
                             {this.state.edit&&<Edit onUpdate={(user)=>{this.setState({user, edit: false})}} userData={this.state.user}/>}
                         </div>
                         <div className="col-md-8 slideLeft">
                             <div className="card-profil">
-                                <h2>About Me</h2>
-                                <hr></hr>
-                                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
                                 <h2>My Reservation</h2>
                                 <hr></hr>
                                 <p>Dr Purple: 26/05/2019 in MIAMI</p>
