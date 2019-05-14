@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { withRouter} from 'react-router-dom';
 import API from '../../../Utils/API';
 import './dashboard.css';
 import EditPromoter from './editPromoter';
 
 
-class dashboardPromoter extends Component {
+export default class dashboardPromoter extends Component {
 
     state = {
         promoter: {},
@@ -24,6 +23,10 @@ class dashboardPromoter extends Component {
         this.setState({edit:true})
       }
 
+      OnEdit=()=>{
+        console.log(`this is `+ this.state.promoter)
+      }
+
     render() {
         return (
             <div>
@@ -39,12 +42,12 @@ class dashboardPromoter extends Component {
                             {!this.state.edit&&<div className="card-profil slideRight">
                                 <img src={this.state.promoter.profile_pic} alt="promoter"></img>
                                 <button onClick={this.edit} type="button" className="btn-login float-right">Edit {this.state.promoter.first_name} <i class="fas fa-promoter-edit"></i></button>
-                                <p><i class="fas fa-signature"></i> {this.state.promoter.handle}</p>
+                                <p><i className="fas fa-signature"></i> {this.state.promoter.handle}</p>
                                 <p><i className="fas fa-envelope"></i> {this.state.promoter.email}</p>
-                                <p><i className="fas fa-mobile"></i> {this.state.promoter.phone_number}</p>
-                                <p><i class="fas fa-city"></i> {this.state.promoter.city}</p>
-                                <p><i class="fas fa-language"></i> {this.state.promoter.languages}</p>
-                                <p><i class="fab fa-instagram"></i> {this.state.promoter.instagram}</p>
+                                <p><i className="fas fa-mobile"></i> {this.state.promoter.phone}</p>
+                                <p><i className="fas fa-city"></i> {this.state.promoter.city}</p>
+                                <p><i className="fas fa-language"></i> {this.state.promoter.languages}</p>
+                                <p><i className="fab fa-instagram"></i> {this.state.promoter.instagram}</p>
                             </div>}
                             {this.state.edit&&<EditPromoter onUpdate={(promoter)=>{this.setState({promoter, edit: false})}} promoterData={this.state.promoter}/>}
                         </div>
@@ -65,5 +68,3 @@ class dashboardPromoter extends Component {
         )
     }
 }
-
-export default withRouter(dashboardPromoter);

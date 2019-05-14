@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import {withRouter } from 'react-router-dom';
 import API from '../../../Utils/API';
 import './dashboard.css';
@@ -24,13 +23,11 @@ class Edit extends Component {
         const {userId, last_name, first_name, email, password,phone, profile_pic} = this.state;
         const registerBody = {id: userId, first_name,last_name, email, password, profile_pic,phone};
         console.log(registerBody);
-        // const id = this.state.userId;
         this.setState({waitingForServer:true},()=>{
         API.UpdateUser(userId, registerBody)
             .then((data)=>{
                 console.log("------ API -------")
-                console.log(data);
-                console.log( this.props);
+                console.log(data.data);
                  this.props.onUpdate({...this.props.userData, ...registerBody});
                 
             })
@@ -85,7 +82,7 @@ class Edit extends Component {
                     </div>
                     <div className="form-group">
                         <label for="InputPassword">Image</label><br></br>
-                        <button onClick={this.showWidget} className="btn-login">{this.state.picOk&&<i class="far fa-check-square"></i>} Upload Picture <i class="fas fa-image"></i></button>
+                        <button onClick={this.showWidget} className="btn-login">{this.state.picOk&&<i className="far fa-check-square"></i>} Upload Picture <i className="fas fa-image"></i></button>
                     </div>
                     <button  onClick={this.edit} type="submit" className="btn-login">Submit</button>
                 </form>

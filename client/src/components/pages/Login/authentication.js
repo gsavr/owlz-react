@@ -71,10 +71,10 @@ class Authentication extends Component {
             <form className="form-inline">
             <div className="form-row">
                 <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn-login">
-                Promoter <i class="fas fa-user-tie"></i> 
+                Promoter <i className="fas fa-user-tie"></i> 
             </button>
             <button onClick={this.logingInUser} type="button" className="btn-login">
-              User <i class="fas fa-users"></i>  
+              User <i className="fas fa-users"></i>  
             </button>
             </div>
             </form>
