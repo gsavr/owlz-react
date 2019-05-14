@@ -23,7 +23,6 @@ module.exports = function(sequelize, DataTypes) {
       descriptions: {
         type: DataTypes.TEXT,
         allowNull: false,
-        len: [1,255]
       },
       city: {
         type: DataTypes.TEXT,

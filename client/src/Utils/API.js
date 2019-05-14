@@ -24,6 +24,10 @@ const apiCall = {
         return axios.put(`/api/users/${id}`, body)
     },
 
+    Updatepromoter:(id,body)=>{
+        return axios.put(`/api/promoters/${id}`, body)
+    },
+
     // List of Promoter per City
     getListPromoter : (city)=>{
         return axios.get(`/api/promoters/city/${city}`) 

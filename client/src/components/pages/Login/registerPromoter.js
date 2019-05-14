@@ -28,6 +28,7 @@ class Registerpromoter extends Component {
     else {
       const {firstName, lastName, email, password, handle, descriptions, city, languages, phone} = this.state;
       const registerBody = {first_name: firstName,last_name:  lastName,email, password, handle, descriptions, city, languages,phone_number: phone };
+      console.log(registerBody);
       this.setState({waitingForServer:true},()=>{
         API.registerPromoter(registerBody)
         .then((data)=>{
@@ -80,7 +81,7 @@ class Registerpromoter extends Component {
             </div>
             <div className="form-group">
               <label for="InputPassword">Description</label>
-              <textarea disabled={this.state.waitingForServer} onChange={this.handleType} name="description" type="text" className="form-control" id="InputDescription" placeholder="I'm the best"/>
+              <textarea disabled={this.state.waitingForServer} onChange={this.handleType} name="descriptions" type="text" className="form-control" id="InputDescription" placeholder="I'm the best"/>
             </div>
             <div className="form-group">
               <label for="InputPassword">City</label>
@@ -88,11 +89,11 @@ class Registerpromoter extends Component {
             </div>
             <div className="form-group">
               <label for="InputPassword">Language</label>
-              <select disabled={this.state.waitingForServer} onChange={this.handleType} name="language" type="text" className="form-control" id="InputLanguage">
+              <select disabled={this.state.waitingForServer} onChange={this.handleType} name="languages" type="text" className="form-control" id="InputLanguages">
                 <option value="" default>Your Language</option>
                 <option value="English">English</option>
                 <option value="Spanish">Spanish</option>
-                <option value="Spanish">French</option>
+                <option value="French">French</option>
                 <option value="Chinese">Chinese</option>
               </select>
              
