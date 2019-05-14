@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state ={
-    loggedIn: localStorage.getItem("user")? true: false,
+    loggedIn: localStorage.getItem("user")? true: false || localStorage.getItem("promoter")? true: false,
     logingIn:false
   }
 
@@ -34,7 +34,7 @@ class App extends Component {
             <Route exact path="/contact" component={Contact} />
             <Route path="/listpromoter/:city" component={Listpromoter} />
             <Route exact path="/dashboard/:id" component={Dashboard} />
-            <Route path="/dashboard/promoter/:id" component={DashboardPromoter} />
+            <Route exact path="/dashboard/promoter/:id" component={DashboardPromoter} />
             <Route component={Home} />
           </Switch>}
       </div>

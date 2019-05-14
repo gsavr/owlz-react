@@ -12,7 +12,7 @@ class EditPromoter extends Component {
         first_name: this.props.promoterData.last_name,
         password: this.props.promoterData.password,
         email: this.props.promoterData.email,
-        phone_number: this.props.promoterData.phone_number,
+        phone: this.props.promoterData.phone,
         handle: this.props.promoterData.handle,
         instagram: this.props.promoterData.instagram,
         city: this.props.promoterData.city,
@@ -25,16 +25,17 @@ class EditPromoter extends Component {
     
     edit=()=>{
         event.preventDefault();
-        const {promoterId, last_name, first_name, email, password,phone_number, profile_pic, handle,instagram, city, languages, descriptions } = this.state;
-        const registerBody = {id: promoterId, first_name,last_name, email, password, profile_pic,phone_number,  handle,instagram, city, languages, descriptions};
-        console.log(registerBody);
+        const {promoterId, last_name, first_name, email, password,phone, profile_pic, handle,instagram, city, languages, descriptions } = this.state;
+        const registerBody = {id: promoterId, first_name,last_name, email, password,phone, profile_pic, handle,instagram, city, languages, descriptions};
+        console.log(`this is my register body`);
+        console.log(registerBody)
         this.setState({waitingForServer:true},()=>{
         API.Updatepromoter(promoterId, registerBody)
             .then((data)=>{
                 console.log("------ API -------")
+                console.log(`this is my data response`);
                 console.log(data);
-                 this.props.onUpdate({...this.props.promoterData, ...registerBody});
-                
+                 this.props.onUpdate({...this.props.promoterData, ...registerBody});  
             })
         })
     }
@@ -43,18 +44,19 @@ class EditPromoter extends Component {
         this.setState({[event.target.name]: event.target.value})
       }
 
-    showWidget = () =>{
+      showWidget = () =>{
         event.preventDefault();
         window.cloudinary.openUploadWidget({
             cloudName: "gsafl",
             uploadPreset: "m48qyart",
             sources: [ 'local', 'url', 'instagram']},
-        (error, result) => {
-            if (result.event === "success") { //if (result && result.event === "success")
-            this.setState({picOk: true});
-            this.state.profile_pic = result.info.url
-            };
-        })
+            (error, result) => {
+                if (result.event === "success") { //if (result && result.event === "success")
+                this.setState({picOk: true})
+                this.state.profile_pic = result.info.url
+                };
+                }
+        )
     }
 
     render() {
@@ -81,7 +83,7 @@ class EditPromoter extends Component {
                     </div>
                     <div className="form-group">
                         <label for="InputPassword">Phone</label>
-                        <input  onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder={this.props.promoterData.phone_number}/>
+                        <input  onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder={this.props.promoterData.phone}/>
                     </div>
                     <div className="form-group">
                         <label for="InputPassword">Handle</label>
@@ -111,7 +113,7 @@ class EditPromoter extends Component {
                     </div>
                     <div className="form-group">
                         <label for="InputPassword">Image</label><br></br>
-                        <button onClick={this.showWidget} className="btn-login">{this.state.picOk&&<i class="far fa-check-square"></i>} Upload Picture <i class="fas fa-image"></i></button>
+                        <button onClick={this.showWidget} className="btn-login">{this.state.picOk&&<i className="far fa-check-square"></i>} Upload Picture <i className="fas fa-image"></i></button>
                     </div>
                     <button  onClick={this.edit} type="submit" className="btn-login">Submit</button>
                 </form>

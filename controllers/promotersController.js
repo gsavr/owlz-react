@@ -43,44 +43,19 @@ module.exports = {
     });
   },
   create: function(req, res) {
-    db.Promoter.create({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        password: req.body.password,
-        handle:req.body.handle,
-        descriptions:req.body.descriptions,
-        city:req.body.city,
-        languages:req.body.languages,
-        phone_number: req.body.phone_number,
-        email: req.body.email,
-        instagram:req.body.instagram,
-        profile_pic: req.body.profile_pic,
-    },{
-        where:{
-            id: req.body.id
-        }
-    }).then(function(dbPromoter){
-      res.json(dbPromoter)
-    })
+    db.Promoter.create(req.body).then(function(data) {
+      res.json(data);
+    });
   },
   update: function(req, res) {
-    db.Promoter.update({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        handle:req.body.handle,
-        descriptions:req.body.about,
-        city:req.body.city,
-        languages:req.body.language,
-        phone_number: req.body.phone_number,
-        email: req.body.email,
-        instagram:req.body.instagram
-    }, {
+    db.Promoter.update(
+      req.body,
+      {
         where: {
           id: req.body.id
         }
-      })
-    .then(function(data) {
-        res.json(data);
+      }).then(function(data) {
+      res.json(data);
     });
   },
   remove: function(req, res) {

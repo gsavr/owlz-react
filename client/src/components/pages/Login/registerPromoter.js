@@ -27,7 +27,7 @@ class Registerpromoter extends Component {
     }
     else {
       const {firstName, lastName, email, password, handle, descriptions, city, languages, phone} = this.state;
-      const registerBody = {first_name: firstName,last_name:  lastName,email, password, handle, descriptions, city, languages,phone_number: phone };
+      const registerBody = {first_name: firstName,last_name:  lastName,email, password, handle, descriptions, city, languages, phone };
       console.log(registerBody);
       this.setState({waitingForServer:true},()=>{
         API.registerPromoter(registerBody)
