@@ -24,7 +24,7 @@ class MultipleItems extends React.Component {
         };
         return (
           <div className="container slick">
-            <h2> Experience VIP </h2>
+            <h1> Experience VIP </h1>
             <Slider {...settings}>
               <div>
                 <img src={Miami1} alt="Logo" />

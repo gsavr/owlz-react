@@ -8,8 +8,8 @@ import './dashboard.css';
 class EditPromoter extends Component {
     state = {
         promoterId: this.props.promoterData.id,
-        last_name: this.props.promoterData.first_name,
-        first_name: this.props.promoterData.last_name,
+        last_name: this.props.promoterData.last_name,
+        first_name: this.props.promoterData.first_name,
         password: this.props.promoterData.password,
         email: this.props.promoterData.email,
         phone: this.props.promoterData.phone,
