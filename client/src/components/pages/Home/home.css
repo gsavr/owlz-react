@@ -26,19 +26,44 @@
   /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
   /* /////////////////////////////////////////////////// Concept /////////////////////////////////////////////////// */
   .ourConcept{
-    margin-bottom: 40px;
+    margin-bottom: 80px;
   }
   .ourConcept h1{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-weight: 300;
   }
 
   .image-concept img{
-    max-width: 80%;
+    max-width: 100%;
     margin-left: auto;
-    margin-right: auto;
     display: block;
     border-radius: 10px;
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
   }
 
+  .text-concept{
+    padding-right: 15%;
+    padding-top: 5%;
+  }
+
+  .text-concept h5{
+    font-size: 25px;
+    font-weight: 200;
+
+  }
+
+  .text-concept ul{
+    list-style-type:none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .jumbotron .btn-login{
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .image-concept img{
+      margin-right: auto;
+  }
+  }
