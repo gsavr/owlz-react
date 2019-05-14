@@ -6,6 +6,8 @@ import LoginPromoter from './loginPromoter';
 import LoginUser from './loginUser';
 import Register from './register';
 import RegisterPromoter from './registerPromoter';
+import Footer from '../../Footer/footer'
+import Barre from '../../images/barre.png';
 
 class Authentication extends Component {
 
@@ -82,10 +84,15 @@ class Authentication extends Component {
         </div>
         <div className="container">
           {this.display()}
+          <div className="barre">
+            <img src={Barre} alt="Logo" />
+          </div>
         </div>
+        <Footer/>
       </div>
     );
   }
 }
 
 export default withRouter(Authentication);
+  

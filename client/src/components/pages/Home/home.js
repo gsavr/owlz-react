@@ -6,6 +6,7 @@ import '../../Footer/footer.css'
 import './home.css';
 import API from "../../../Utils/API"
 import Miami1 from '../../images/story.jpg';
+import Barre from '../../images/barre.png';
 
 
 class Home extends Component {
@@ -82,7 +83,13 @@ class Home extends Component {
           </div>
         </div>
       </div>
+      <div className="barre">
+        <img src={Barre} alt="Logo" />
       </div>
+      
+      </div>
+
+      
       <div className="text-center">
         <Slick/>
       </div>

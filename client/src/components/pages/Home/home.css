@@ -57,6 +57,11 @@
     list-style-type:none;
   }
 
+  .barre img{
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
   @media only screen and (max-width: 600px) {
     .jumbotron .btn-login{
       margin-top: 20px;
