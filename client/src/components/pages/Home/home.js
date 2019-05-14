@@ -5,6 +5,7 @@ import Footer from '../../Footer/footer';
 import '../../Footer/footer.css'
 import './home.css';
 import API from "../../../Utils/API"
+import Miami1 from '../../images/story.jpg';
 
 
 class Home extends Component {
@@ -52,6 +53,20 @@ class Home extends Component {
           </form>
         </div>
       </div>
+      <div ClassName="ourConcept">
+        <h1 className="text-center">Our Concept</h1>
+        <div className="row">
+          <div className="col-md-6">
+            <div className='image-concept'>
+              <img src={Miami1} alt="Logo" />
+            </div>
+          </div>
+          <div className="col-md-6">
+
+          </div>
+        </div>
+      </div>
+
       <div className="text-center">
         <Slick/>
       </div>

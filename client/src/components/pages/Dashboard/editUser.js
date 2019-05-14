@@ -8,8 +8,8 @@ import './dashboard.css';
 class Edit extends Component {
     state = {
         userId: this.props.userData.id,
-        last_name: this.props.userData.first_name,
-        first_name: this.props.userData.last_name,
+        last_name: this.props.userData.last_name,
+        first_name: this.props.userData.first_name,
         password: this.props.userData.password,
         email: this.props.userData.email,
         phone: this.props.userData.phone,
@@ -21,13 +21,13 @@ class Edit extends Component {
     edit=()=>{
         event.preventDefault();
         const {userId, last_name, first_name, email, password,phone, profile_pic} = this.state;
-        const registerBody = {id: userId, first_name,last_name, email, password, profile_pic,phone};
+        const registerBody = {id: userId, last_name, first_name, email, password, profile_pic,phone};
         console.log(registerBody);
         this.setState({waitingForServer:true},()=>{
         API.UpdateUser(userId, registerBody)
             .then((data)=>{
                 console.log("------ API -------")
-                console.log(data.data);
+                console.log(data);
                  this.props.onUpdate({...this.props.userData, ...registerBody});
                 
             })
