@@ -61,19 +61,19 @@ class Registerpromoter extends Component {
             <h1 className="text-center">Register Promoter</h1>
             <div className="form-group">
               <label for="InputFirstname">First Name</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="First Name"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="First name"/>
             </div>
             <div className="form-group">
               <label for="Inputlastname">Last Name</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="lastName" type="text" className="form-control" id="Inputlastname" placeholder="Last Name"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="lastName" type="text" className="form-control" id="Inputlastname" placeholder="Last name"/>
             </div>
             <div className="form-group">
               <label for="exampleInputEmail">Email address</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="email@example.com"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="your@email.com"/>
             </div>
             <div className="form-group">
               <label for="InputPassword">Password</label>
-              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="password"/>
+              <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="choose your password"/>
             </div>
             <div className="form-group">
               <label for="InputPassword">Handle</label>
