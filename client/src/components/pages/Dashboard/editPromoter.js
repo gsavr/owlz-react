@@ -63,7 +63,7 @@ class EditPromoter extends Component {
         
         return (
             <div>
-                <form className="form-log slideUp">
+                <form className="form-log-promoter slideUp">
                     <h1 className="text-center">Edit {this.props.promoterData.first_name} {this.props.promoterData.last_name}</h1>
                     <div className="form-group">
                         <label for="exampleInputEmail">Email address</label>

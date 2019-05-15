@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../../logo.svg';
 import './listPromoter.css';
 import API from '../../../Utils/API';
 
@@ -29,9 +28,14 @@ class Listpromoter extends Component {
     let Promoter = []
     for (let i = 0; i < this.state.promoters.length; i++) {
       Promoter.push(
-        <div className="row card-profil">
+        <div className="row card-profil-promoter slideUp">
             <div className="col-md-3">
               <img src={this.state.promoters[i].profile_pic} alt="promoter"></img>
+              <ul className="list-inline">
+                <li className="list-inline-item li-description">
+                  <i className="fab fa-instagram"></i> {this.state.promoters[i].instagram}
+                </li>
+              </ul>
             </div>
             <div className="col-md-9">
                 <div className="description">
@@ -41,24 +45,13 @@ class Listpromoter extends Component {
                       <i className="fas fa-language"></i> <span>{this.state.promoters[i].languages}</span>
                       <i className="fas fa-city"></i> <span>{this.state.promoters[i].city}</span> 
                   </div>
-                  <b>{this.state.promoters[i].first_name} {this.state.promoters[i].last_name}</b>
+                  <b>{this.state.promoters[i].handle || this.state.promoters[i].first_name && this.state.promoters[i].last_name}</b>
                   <h4>Description</h4>
                   <hr className="line-hr"></hr>
                   <p>{this.state.promoters[i].descriptions}.</p>
-                  <div className="footer-description">
                   <div className="float-right">
-                    <button className="btn btn-primary">Contact</button>
+                    <button className="btn-login">Contact</button>
                   </div>
-                  <ul className="list-inline">
-                    <li className="list-inline-item li-description"><i className="fab fa-instagram"></i> {this.state.promoters[i].instagram}
-                    </li>
-                    <li className="list-inline-item li-description"><i className="fas fa-envelope"></i> {this.state.promoters[i].email}
-                    </li>
-                    <li className="list-inline-item li-description"><i className="fas fa-mobile"></i> {this.state.promoters[i].phone_number}
-                    </li>
-                  </ul>
-                  </div>
-                  
                 </div>
             </div>
         </div>
@@ -74,10 +67,11 @@ class Listpromoter extends Component {
 
     return (
       <div>
-        <div className="App App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>List Promoter</h2>
-          <p>From</p>
+        <div className="jumbotron jumbotron-fluid jumbotron-list slideRight">
+            <div className="container text-center">
+                <h2>List of Promoter</h2>
+                <h2>in {this.state.promoters[0].city}</h2> 
+            </div>
         </div>
         {/* {JSON.stringify(this.state.promoters)} */}
         <div className="container-fuild">
