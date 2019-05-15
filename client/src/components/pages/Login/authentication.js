@@ -71,14 +71,14 @@ class Authentication extends Component {
           <div className="container text-center">
             <h1 className="display-4">Register / Login</h1>
             <form className="form-inline">
-            <div className="form-row">
-                <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn-login">
-                Promoter <i className="fas fa-user-tie"></i> 
-            </button>
-            <button onClick={this.logingInUser} type="button" className="btn-login">
-              User <i className="fas fa-users"></i>  
-            </button>
-            </div>
+              <div className="form-row">
+                  <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn-login">
+                    Promoter <i className="fas fa-user-tie"></i> 
+                  </button>
+                  <button onClick={this.logingInUser} type="button" className="btn-login">
+                    User <i className="fas fa-users"></i>  
+                  </button>
+              </div>
             </form>
           </div>
         </div>

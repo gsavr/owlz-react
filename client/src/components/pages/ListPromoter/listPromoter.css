@@ -1,18 +1,24 @@
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////// Card Profil /////////////////////////////////////////////// */
-.card-profil{
+.jumbotron-list {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/skyline.jpg");
+  height: 200px;
+  background-position-y: -345px;
+  opacity: 2;
+  color: #fff;
+}
+.card-profil-promoter{
     width: 95%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
     border-radius: 8px;
     padding: 20px;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
   }
   
-  .card-profil img{
+  .card-profil-promoter img{
     border-radius: 8px;
     width: 65%;
     display: block;
@@ -24,6 +30,18 @@
     border-radius: 140px;
   }
   
+  .card-profil-promoter:hover {
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+    transition: .1s;
+}
+
+
   .description{
     padding-left: 20px;
     padding-right: 20px;
@@ -53,15 +71,5 @@
   } 
   
   .float-right span{
-    padding-right: 20px;
-  }
-  
-  .footer-description{
-    width: 93%;
-    position: absolute;
-    bottom: 0;
-  }
-  
-  .footer-description .li-description{
     padding-right: 20px;
   }
