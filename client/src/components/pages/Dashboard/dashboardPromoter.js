@@ -11,15 +11,18 @@ export default class dashboardPromoter extends Component {
         promoter: {},
         message:{},
         edit: false,
+        confirm: "",
     }
     componentDidMount() {
         const id =this.props.match.params.id
         API.getPromoterById(id).then((data)=> {
+            console.log("Promoter data")
             console.log(data)
             const promoter = data.data;
             this.setState({ promoter });
         });
         API.getMessageById(id).then((data)=> {
+            console.log("Message data")
             console.log(data)
             const message = data.data;
             this.setState({ message });
@@ -27,12 +30,32 @@ export default class dashboardPromoter extends Component {
     }
 
     messageConfirm=(id)=>{
-        // const newBody = confirm
-        // API.putMessageById(id, newBody).then((data)=> {
-        //     console.log(data)
-        //     // 
-        // });
+        const newId = id -1
+        this.state.message[newId].confirm
+        console.log(this.state.message[newId].confirm)
+        this.setState({confirm: true})
+        const {confirm} = this.state;
+        console.log(this.state.confirm)
+        const newBody = {id: id ,confirm: confirm}
+        API.putMessageById(id, newBody).then((data)=> {
+            console.log("Message confirm data ")
+            console.log(data)
+        });
     }
+
+    messageDelete=(id)=>{
+        this.setState({confirm: false})
+        const {confirm} = this.state;
+        const newBody = {confirm}
+        API.putMessageById(id, newBody).then((data)=> {
+            console.log("Message Delete data")
+            console.log(data)
+        });
+      
+        
+    }
+
+
 
     edit=()=>{
         this.setState({edit:true})
@@ -50,8 +73,11 @@ export default class dashboardPromoter extends Component {
             // const end = moment(this.state.message[i].end_date).format("LL");
             Message.push(
                 <div className="card-profil">
-                    <button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id)}>Accept <i className="fas fa-check"></i></button>
-                    <button className="btn-login float-right">Reject <i className="fas fa-times"></i></button>
+                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id)}>Accept <i className="fas fa-check"></i></button>
+                    <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
+                    {this.state.message[i].confirm&&<div>you have valid</div>}
+                    {!this.state.message[i].confirm&&<div>Refused</div>}
+
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
