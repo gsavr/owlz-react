@@ -7,10 +7,11 @@
 }
 .jumbotron-auth h1{
     background: rgba(0, 0, 0, 0.5);
-    max-width: 394px;
+    max-width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
+
 .log-type {
     width: 90px;
     border: 4px solid #484848;

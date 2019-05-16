@@ -96,7 +96,6 @@ class Registerpromoter extends Component {
                 <option value="French">French</option>
                 <option value="Chinese">Chinese</option>
               </select>
-             
             </div>
             <div className="form-group">
               <label for="InputPassword">Phone</label>

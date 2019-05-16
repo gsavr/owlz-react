@@ -6,6 +6,11 @@ import './nav.css';
 
 
 class Nav extends Component {
+
+  state={
+    user:  parseInt(localStorage.getItem("user"))
+  }
+
   render(){ 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,6 +24,11 @@ class Nav extends Component {
       </button>
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav mr-auto">
+        {this.props.loggedIn&&<li className="nav-item">
+            <Link onClick={this.props.onNavigation} to={"/dashboard/"+this.state.user} className={window.location.pathname === "/" ? "nav-link" : "nav-link"}>
+              Dashboard
+            </Link>
+          </li>}
           <li className="nav-item">
             <Link onClick={this.props.onNavigation} to="/about" className={window.location.pathname === "/" ? "nav-link" : "nav-link"}>
               About us 
