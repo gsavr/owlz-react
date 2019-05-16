@@ -4,6 +4,7 @@ import Chatkit from '@pusher/chatkit-client'
 import MessageWindow from './MessageWindow'
 import SendMessageForm from './SendMessageForm'
 import MessageList from './MessageList'
+import ShowHide from './ShowHide'
 //import NewMessageForm from './NewMessageForm'
 
 class ChatApp extends React.Component {
@@ -12,6 +13,7 @@ class ChatApp extends React.Component {
         messages: [],
         joinableRooms: [],
         joinedRooms: [],
+        hide: false,
     }
 
     componentDidMount() {
@@ -41,9 +43,9 @@ class ChatApp extends React.Component {
             }).catch(err => console.log('error on joinableRooms: ', err))
     }
 
-    subscribeToChat = (roomId) => { //ROOM ID NOT COMING THROUGH
+    subscribeToChat = (roomId) => { //ROOM ID COMING THROUGH FROM MESSAGELIST
         this.setState({ messages: [] });
-        console.log(`room id in subscribeToChat (App.js): ${roomId}`) //NOT WORKING
+        //console.log(`room id in subscribeToChat (App.js): ${roomId}`) //works
         this.currentUser.subscribeToRoom({
             roomId: roomId /* this.currentUser.rooms[0].id */,
             hooks: {
@@ -70,12 +72,14 @@ class ChatApp extends React.Component {
         })
     }
 
-    render() {
-        //console.log(this.state.joinedRooms[0]) //shows a lot
-        //console.log(` messages: ${this.state.messages}`) //works
-        //console.log(`room in state ${this.state.roomId}`) //works
-        return (
+    showHide = (hide) => {
+        this.setState({
+            hide: hide
+        })
+    }
 
+    activeChat = () => {
+        return (
             <div className="app">
                 <MessageList
                     roomId={this.state.roomId}
@@ -84,6 +88,28 @@ class ChatApp extends React.Component {
                 <MessageWindow messages={this.state.messages} />
                 <SendMessageForm sendMessage={this.sendMessage} />
                 {/* <NewMessageForm /> */}
+                <ShowHide hide={this.state.hide} showHide={this.showHide} />
+            </div>
+        )
+    }
+
+    hiddenChat = () => {
+        return (
+            <div className="app-hidden">
+                <ShowHide hide={this.state.hide} showHide={this.showHide} />
+            </div>
+        )
+    }
+
+
+    render() {
+        //console.log(`hide state in ChatApp ${this.state.hide}`)
+        //console.log(this.state.joinedRooms[0]) //shows a lot
+        //\console.log(` messages: ${this.state.messages}`) //works
+        //console.log(`room in state ${this.state.roomId}`) //works
+        return (
+            <div>
+                {!this.state.hide ? this.activeChat() : this.hiddenChat()}
             </div>
         );
     }

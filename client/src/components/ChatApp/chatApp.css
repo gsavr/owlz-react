@@ -24,7 +24,9 @@ html, body {
     position: fixed;
     right: 5px;
     bottom: 0px;
-    border: 3px solid #3e5869;
+    border: .5px solid #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     border-radius: 3px;
     display: grid;
     width: 375px;
@@ -37,7 +39,22 @@ html, body {
         "r m m m m m"
         "r m m m m m"
         "r m m m m m"
-        "f f f f f f";
+        "f f f f f f"
+        /* "          s" */;
+}
+
+.app-hidden {
+    z-index: 1;
+    position: fixed;
+    right: 5px;
+    bottom: 0px;
+    border: .5px solid #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    border-radius: 3px;
+    width: 80px;
+    height: 20px;
+    background-color: #fff;
 }
 
 .new-room-form {
@@ -56,7 +73,34 @@ html, body {
     grid-area: f;
 }
 
+/* .show-hide {
+    grid-area: s;
+} */
+
 /* REST OF CSS */
+.show-hide {
+    font-size: 13px;
+    text-align: right;
+    position: absolute;
+    right: 5px;
+    bottom:0px;
+    width: 70px;
+    height: 20px;
+    
+}
+
+.show-hide a{
+    color:black;
+    text-decoration: none;
+}
+
+.hide {
+    /* z-index: 1; */
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    width: 66px;
+}
+
 .rooms-list {
     width: 100px;
     box-sizing: border-box;
@@ -64,6 +108,8 @@ html, body {
     background-color: var(--main-color);
     overflow: scroll;
     height: 100%;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 .rooms-list > ul {
@@ -160,6 +206,8 @@ html, body {
     overflow-wrap: break-word;
     overflow: scroll;
     background: var(--secondary-color);
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 .message-list .join-room {
@@ -183,7 +231,6 @@ html, body {
     border-style: none;
     background: var(--send-message-form);
     font-weight: 200;
-
 }
 
 .send-message-form input:focus {
