@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ChatApp from '../ChatApp/ChatApp'
+//import ChatApp from '../ChatApp/ChatApp'
 import logo from '../images/owl.png';
 import './nav.css';
 
@@ -29,7 +29,6 @@ class Nav extends Component {
               Contact us
             </Link>
           </li>
-          <li><ChatApp /></li>
         </ul>
         <span className="navbar-text ">
           {!this.props.loggedIn&&<button className="btn-login" onClick={this.props.onLogin} >
@@ -39,7 +38,7 @@ class Nav extends Component {
              log out
           </button>}
         </span>
-      </div>
+      </div>{/* <ChatApp /> */}
     </nav>
   );
 }

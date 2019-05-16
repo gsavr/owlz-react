@@ -1,11 +1,11 @@
 import React from 'react'
 
 class SendMessageForm extends React.Component {
-    state={
+    state = {
         message: '',
     }
 
-    typeText=(e)=>{
+    typeText = (e) => {
         this.setState({ message: e.target.value })
     }
 

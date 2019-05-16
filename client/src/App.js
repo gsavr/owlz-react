@@ -7,6 +7,7 @@ import Dashboard from "./components/pages/Dashboard/dashboard";
 import DashboardPromoter from "./components/pages/Dashboard/dashboardPromoter";
 import Listpromoter from "./components/pages/ListPromoter/listPromoter";
 import Nav from "./components/Nav";
+import ChatApp from './components/ChatApp/ChatApp'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path="/dashboard/promoter/:id" component={DashboardPromoter} />
             <Route component={Home} />
           </Switch>}
+          <ChatApp />
       </div>
       </Router>
     );
