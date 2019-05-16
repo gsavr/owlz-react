@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-    var Lead = sequelize.define("Lead", {
+    var Message = sequelize.define("Message", {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
       start_date: {
         type: DataTypes.DATEONLY,
         allowNull: false,
@@ -16,17 +21,15 @@ module.exports = function(sequelize, DataTypes) {
       },
       occasion:{
         type: DataTypes.TEXT,
-        allowNull: false, 
       },
       message:{
         type: DataTypes.TEXT,
         allowNull: false,  
       },
-      email_client:{
-        type: DataTypes.TEXT,
-        allowNull: false,  
+      confirm:{
+        type: DataTypes.BOOLEAN,
       },
     });
-    return Lead;
+    return Message;
   };
   

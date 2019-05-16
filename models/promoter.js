@@ -63,9 +63,7 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: false,
     });
     Promoter.associate = function(models) {
-        Promoter.hasMany(models.Lead, {
-          onDelete: "cascade",
-        });
+        Promoter.hasMany(models.Message);
       };
     return Promoter;
   };

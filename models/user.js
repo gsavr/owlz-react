@@ -43,7 +43,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-      User.hasMany(models.AuthToken);
+      User.hasMany(models.Message);
     };
 
     return User;
