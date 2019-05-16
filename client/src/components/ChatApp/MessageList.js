@@ -17,7 +17,7 @@ class MessageList extends React.Component {
                         const active = this.props.roomId === roomId ? "active" : "";
                         return (
                             <li key={roomId} className={`room ${active}`}>
-                                <a onClick={() => this.props.subscribeToChat(roomId)} id={roomId} href="#">{room.name}</a>
+                                <a onClick={() => this.props.subscribeToChat(roomId)} id={roomId} href="javascript:;">{room.name}</a>
                             </li>
                         )
                     })}

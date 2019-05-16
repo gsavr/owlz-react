@@ -1,5 +1,5 @@
 :root {
-    --main-color: #1A2021;
+    --main-color: #232c2e;
     --secondary-color: white;
     --main-text-color: #3e5869;
     --secondary-text-color: #e6eaec;
@@ -22,7 +22,7 @@ html, body {
 .app {
     z-index: 1;
     position: fixed;
-    right: 5px;
+    right: 10px;
     bottom: 0px;
     border: .5px solid #fff;
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
@@ -46,7 +46,7 @@ html, body {
 .app-hidden {
     z-index: 1;
     position: fixed;
-    right: 5px;
+    right: 10px;
     bottom: 0px;
     border: .5px solid #fff;
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
@@ -136,7 +136,7 @@ html, body {
  }
 
 .rooms-list .room.active a {
-    color: rgb(123, 228, 228) /* var(--secondary-color) */;
+    color: #d373d6 /* var(--secondary-color) */;
 }
 
 .new-room-form {
@@ -195,7 +195,9 @@ html, body {
     color: var(--secondary-color);
     display: inline;
     padding: 4px 8px;
-    border-radius: 8px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 .message-list {

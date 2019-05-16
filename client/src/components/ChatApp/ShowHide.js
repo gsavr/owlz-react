@@ -13,7 +13,7 @@ class ShowHide extends React.Component {
     render() {
         //console.log(`hidden prop in showhide component: ${this.props.hide}`) //works
         return (
-            <div className={`show-hide ${this.props.hide ? 'show' : 'hide'}`} onClick={this.showHide}><a href='#'>{this.props.hide ? 'Show Chats' : 'Hide Chats'}</a></div>
+            <div className={`show-hide ${this.props.hide ? 'show' : 'hide'}`} onClick={this.showHide}><a href='javascript:;'>{this.props.hide ? 'Show Chats' : 'Hide Chats'}</a></div>
         )
     }
 }
