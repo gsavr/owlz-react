@@ -39,6 +39,21 @@ const apiCall = {
     // Login User
     loginPromoter : (body)=>{
         return axios.post(`/api/promoters/login`,body) 
-    }
+    },
+
+    // create Message
+    createMessage: (body)=>{
+        return axios.post("/api/messages/", body)
+     },
+
+     // Get Message By Id
+     getMessageById : (id)=>{
+        return axios.get(`/api/messages/${id}`)
+    },
+
+    // Put Message By Id
+    putMessageById : (id, body)=>{
+        return axios.put(`/api/messages/${id}`, body)
+    },
 }
 export default apiCall;

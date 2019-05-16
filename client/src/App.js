@@ -32,7 +32,7 @@ class App extends Component {
           {!this.state.logingIn &&<Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
-            <Route path="/listpromoter/:city" component={Listpromoter} />
+            <Route path="/listpromoter/:city" render={(props) => <Listpromoter {...props} loggedIn={this.state.loggedIn} />}/>     
             <Route exact path="/dashboard/:id" component={Dashboard} />
             <Route exact path="/dashboard/promoter/:id" component={DashboardPromoter} />
             <Route component={Home} />

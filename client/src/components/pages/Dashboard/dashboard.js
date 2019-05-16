@@ -8,6 +8,7 @@ export default class dashboard extends Component {
 
     state = {
         user: {},
+        message: {},
         edit: false,
     }
     componentDidMount() {
@@ -16,6 +17,11 @@ export default class dashboard extends Component {
             console.log(data)
             const user = data.data;
             this.setState({ user });
+        });
+        API.getMessageById(id).then((data)=> {
+            console.log(data)
+            const message = data.data;
+            this.setState({ message });
         });
     }
 
@@ -28,6 +34,10 @@ export default class dashboard extends Component {
       }
 
     render() {
+        
+        
+
+
         return (
             <div>
                 <div className="jumbotron jumbotron-fluid jumbotron-dash slideRight">
@@ -53,7 +63,7 @@ export default class dashboard extends Component {
                         {!this.state.edit&&<div className="card-profil">
                                 <h2>My Reservation</h2>
                                 <hr></hr>
-                                <p>Dr Purple: 26/05/2019 in MIAMI</p>
+                                <p></p>
                             </div>}
                          
                         </div>

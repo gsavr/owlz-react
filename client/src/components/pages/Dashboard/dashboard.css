@@ -112,6 +112,12 @@
   transition: .1s;
 }
 
+.text-message{
+  font-size: 20px;
+}
+
+
+
 @media only screen and (max-width: 600px) {
   .jumbotron-dash {
     background-position-y: 0px;

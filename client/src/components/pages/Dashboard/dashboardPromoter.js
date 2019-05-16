@@ -9,6 +9,7 @@ export default class dashboardPromoter extends Component {
 
     state = {
         promoter: {},
+        message:{},
         edit: false,
     }
     componentDidMount() {
@@ -18,6 +19,19 @@ export default class dashboardPromoter extends Component {
             const promoter = data.data;
             this.setState({ promoter });
         });
+        API.getMessageById(id).then((data)=> {
+            console.log(data)
+            const message = data.data;
+            this.setState({ message });
+        });
+    }
+
+    messageConfirm=(id)=>{
+        // const newBody = confirm
+        // API.putMessageById(id, newBody).then((data)=> {
+        //     console.log(data)
+        //     // 
+        // });
     }
 
     edit=()=>{
@@ -26,6 +40,27 @@ export default class dashboardPromoter extends Component {
 
       OnEdit=()=>{
         console.log(`this is `+ this.state.promoter)
+      }
+
+      messages = () => {
+        let Message = []
+    
+        for (let i = 0; i < this.state.message.length; i++) {
+            // const start = moment(this.state.message[i].start_date).format("LL");
+            // const end = moment(this.state.message[i].end_date).format("LL");
+            Message.push(
+                <div className="card-profil">
+                    <button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id)}>Accept <i className="fas fa-check"></i></button>
+                    <button className="btn-login float-right">Reject <i className="fas fa-times"></i></button>
+                    <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
+                    <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
+                    <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
+                    <h4>Message <i className="fas fa-comments"></i> : <span className="text-message">{this.state.message[i].message}</span></h4>
+                </div>
+               
+            )
+        }
+        return Message
       }
 
     render() {
@@ -60,7 +95,7 @@ export default class dashboardPromoter extends Component {
                                 <p>{this.state.promoter.descriptions}</p>
                                 <h2>My Reservation</h2>
                                 <hr></hr>
-                                <p>Dr Purple: 26/05/2019 in MIAMI</p>
+                                {this.messages()}
                             </div>}
                         </div>
                     </div>
