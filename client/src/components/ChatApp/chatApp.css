@@ -221,6 +221,11 @@ html, body {
     font-weight: 300;
 }
 
+.message-list-header {
+    font-size: .9rem;
+    color: #8b8989
+}
+
 .send-message-form {
     background: var(--send-message-form);
     display: flex;

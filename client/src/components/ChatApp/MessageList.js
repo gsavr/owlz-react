@@ -9,7 +9,7 @@ class MessageList extends React.Component {
 
             <div className="rooms-list">
                 <ul>
-                    <h6>Messages:</h6>
+                    <div className="message-list-header">Messages</div>
                     {orderedRooms.map(room => {
                         //console.log(room.id) //works
                         const roomId = room.id
