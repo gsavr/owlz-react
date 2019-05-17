@@ -18,7 +18,7 @@ export default class dashboard extends Component {
             const user = data.data;
             this.setState({ user });
         });
-        API.getMessageById(id).then((data)=> {
+        API.getMessageByUserId(id).then((data)=> {
             console.log(data)
             const message = data.data;
             this.setState({ message });
@@ -29,9 +29,29 @@ export default class dashboard extends Component {
         this.setState({edit:true})
       }
 
-      OnEdit=()=>{
-        console.log(`this is `+ this.state.user)
-      }
+    messages = () => {
+    let Message = []
+    for (let i = 0; i < this.state.message.length; i++) {
+        // const start = moment(this.state.message[i].start_date).format("LL");
+        // const end = moment(this.state.message[i].end_date).format("LL");
+        Message.push(
+            <div className="card-profil">
+                {this.state.message[i].confirm&&<div className="float-right validate text-center">
+                You have been Validated <i className="fas fa-laugh-beam"></i>
+                <p>the promoter will contact you</p>
+                </div>}
+                {!this.state.message[i].confirm && this.state.message[i].confirm != null &&<div className="float-right validate text-center">You have been Refused <i className="fas fa-sad-cry"></i></div>}
+                {this.state.message[i].confirm === null&&<div className="float-right validate text-center">Waiting the promoter...</div>}
+                <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
+                <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
+                <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
+                <h4>Message <i className="fas fa-comments"></i> : <span className="text-message">{this.state.message[i].message}</span></h4>
+            </div>
+            
+        )
+    }
+    return Message
+    }
 
     render() {
         return (
@@ -59,7 +79,7 @@ export default class dashboard extends Component {
                         {!this.state.edit&&<div className="card-profil">
                                 <h2>My Reservation</h2>
                                 <hr></hr>
-                                <p></p>
+                                {this.messages()}
                             </div>}
                          
                         </div>

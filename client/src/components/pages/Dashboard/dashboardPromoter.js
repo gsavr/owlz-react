@@ -14,13 +14,14 @@ export default class dashboardPromoter extends Component {
     }
     componentDidMount() {
         const id =this.props.match.params.id
+        console.log(id)
         API.getPromoterById(id).then((data)=> {
             console.log("Promoter data")
             console.log(data)
             const promoter = data.data;
             this.setState({ promoter });
         });
-        API.getMessageById(id).then((data)=> {
+        API.getMessageByPromoterId(id).then((data)=> {
             console.log("Message data")
             console.log(data)
             const message = data.data;
@@ -29,8 +30,8 @@ export default class dashboardPromoter extends Component {
     }
 
     messageConfirm=(id, confirm)=>{
-        confirm = true;
-        const newBody = {id: id, confirm: confirm}
+        confirm === true;
+        const newBody = {id: id, confirm: confirm }
         API.putMessageById(id, newBody).then((data)=> {
             console.log("Message confirm data ")
             console.log(data)
@@ -39,21 +40,15 @@ export default class dashboardPromoter extends Component {
 
     messageDelete=(id, confirm)=>{
         confirm = false;
-        const newBody = {id: id, confirm}
+        const newBody = {id: id, confirm: confirm}
         API.putMessageById(id, newBody).then((data)=> {
             console.log("Message Delete data")
             console.log(data)
-        });  
+        }); 
     }
-
-
 
     edit=()=>{
         this.setState({edit:true})
-      }
-
-      OnEdit=()=>{
-        console.log(`this is `+ this.state.promoter)
       }
 
       messages = () => {
@@ -68,7 +63,6 @@ export default class dashboardPromoter extends Component {
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
                     {this.state.message[i].confirm&&<div>you have valid</div>}
                     {!this.state.message[i].confirm&&<div>Refused</div>}
-
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
