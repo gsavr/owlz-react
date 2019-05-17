@@ -52,7 +52,7 @@ const apiCall = {
     },
 
     // Put Message By Id
-    putMessageById : (id, body)=>{
+    putMessageById : (id,body)=>{
         return axios.put(`/api/messages/${id}`, body)
     },
 }
