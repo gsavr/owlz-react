@@ -34,10 +34,6 @@ export default class dashboard extends Component {
       }
 
     render() {
-        
-        
-
-
         return (
             <div>
                 <div className="jumbotron jumbotron-fluid jumbotron-dash slideRight">

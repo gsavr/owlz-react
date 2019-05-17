@@ -11,7 +11,6 @@ export default class dashboardPromoter extends Component {
         promoter: {},
         message:{},
         edit: false,
-        confirm: "",
     }
     componentDidMount() {
         const id =this.props.match.params.id
@@ -29,30 +28,22 @@ export default class dashboardPromoter extends Component {
         });
     }
 
-    messageConfirm=(id)=>{
-        const newId = id -1
-        this.state.message[newId].confirm
-        console.log(this.state.message[newId].confirm)
-        this.setState({confirm: true})
-        const {confirm} = this.state;
-        console.log(this.state.confirm)
-        const newBody = {id: id ,confirm: confirm}
+    messageConfirm=(id, confirm)=>{
+        confirm = true;
+        const newBody = {id: id, confirm: confirm}
         API.putMessageById(id, newBody).then((data)=> {
             console.log("Message confirm data ")
             console.log(data)
         });
     }
 
-    messageDelete=(id)=>{
-        this.setState({confirm: false})
-        const {confirm} = this.state;
-        const newBody = {confirm}
+    messageDelete=(id, confirm)=>{
+        confirm = false;
+        const newBody = {id: id, confirm}
         API.putMessageById(id, newBody).then((data)=> {
             console.log("Message Delete data")
             console.log(data)
-        });
-      
-        
+        });  
     }
 
 
@@ -73,7 +64,7 @@ export default class dashboardPromoter extends Component {
             // const end = moment(this.state.message[i].end_date).format("LL");
             Message.push(
                 <div className="card-profil">
-                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id)}>Accept <i className="fas fa-check"></i></button>
+                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm)}>Accept <i className="fas fa-check"></i></button>
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
                     {this.state.message[i].confirm&&<div>you have valid</div>}
                     {!this.state.message[i].confirm&&<div>Refused</div>}
