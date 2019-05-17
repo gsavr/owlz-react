@@ -46,9 +46,14 @@ const apiCall = {
         return axios.post("/api/messages/", body)
      },
 
-     // Get Message By Id
-     getMessageById : (id)=>{
+     // Get Message By UserId
+    getMessageByUserId : (id)=>{
         return axios.get(`/api/messages/${id}`)
+    },
+
+    // Get Message By PromoterId
+    getMessageByPromoterId : (id)=>{
+        return axios.get(`/api/messages/promoters/${id}`)
     },
 
     // Put Message By Id

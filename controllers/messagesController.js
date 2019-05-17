@@ -18,6 +18,15 @@ module.exports = {
           res.json(data);
         });
       },
+      findMessageByPromoter: function(req, res) {
+        db.Message.findAll({
+          where: {
+            PromoterId: req.params.id
+          }
+        }).then(function(data) {
+          res.json(data);
+        });
+      },
       update: function(req, res) {
         db.Message.update(
           req.body,
