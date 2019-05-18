@@ -11,35 +11,42 @@ import ChatApp from './components/ChatApp/ChatApp'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
-  state ={
-    loggedIn: localStorage.getItem("user")? true: false || localStorage.getItem("promoter")? true: false,
-    logingIn:false
+  state = {
+    loggedIn: localStorage.getItem("user") ? true : false || localStorage.getItem("promoter") ? true : false,
+    logingIn: false,
+    loggedInEmail: '',
   }
 
   // User Login 
-  onRegister=() =>{
-    this.setState({loggedIn: true, logingIn: false});
+  onRegister = () => {
+    this.setState({ loggedIn: true, logingIn: false });
   }
-  
+
+  chatEmail = (email) => {
+    this.setState({ loggedInEmail: email })
+  }
+
   render() {
     return (
       <Router>
-      <div>
-          <Nav onNavigation={()=> this.setState({logingIn: false})} loggedIn={this.state.loggedIn} onLogin={()=> this.setState({logingIn: true})} 
-           onLogout={()=>{ this.setState({loggedIn: false})
-           window.location.href = '/';
-           localStorage.clear()}}/>
+        <div>
+          <Nav onNavigation={() => this.setState({ logingIn: false })} loggedIn={this.state.loggedIn} onLogin={() => this.setState({ logingIn: true })}
+            onLogout={() => {
+              this.setState({ loggedIn: false })
+              window.location.href = '/';
+              localStorage.clear()
+            }} />
           {this.state.logingIn && <Authentication onRegister={this.onRegister} />}
-          {!this.state.logingIn &&<Switch>
+          {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
-            <Route path="/listpromoter/:city" render={(props) => <Listpromoter {...props} loggedIn={this.state.loggedIn} />}/>     
+            <Route path="/listpromoter/:city" render={(props) => <Listpromoter {...props} loggedIn={this.state.loggedIn} />} />
             <Route exact path="/dashboard/:id" component={Dashboard} />
             <Route exact path="/dashboard/promoter/:id" component={DashboardPromoter} />
             <Route component={Home} />
           </Switch>}
-          <ChatApp />
-      </div>
+          {this.state.loggedIn && <ChatApp email={this.state.loggedInEmail} />}
+        </div>
       </Router>
     );
   }
