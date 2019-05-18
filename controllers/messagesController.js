@@ -31,10 +31,11 @@ module.exports = {
         db.Message.update(
           req.body,
           {
-            where: {
+            returning: true,where: {
               id: req.body.id
             }
           }).then(function(data) {
+            console.log(data)
           res.json(data);
         });
       },
