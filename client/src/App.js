@@ -36,7 +36,7 @@ class App extends Component {
               window.location.href = '/';
               localStorage.clear()
             }} />
-          {this.state.logingIn && <Authentication onRegister={this.onRegister} />}
+          {this.state.logingIn && <Authentication onRegister={this.onRegister} chatEmail={this.chatEmail} />}
           {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
