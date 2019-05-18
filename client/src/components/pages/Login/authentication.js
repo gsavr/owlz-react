@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import '../../../App.css';
 import './authentication.css';
 import LoginPromoter from './loginPromoter';
@@ -16,52 +16,56 @@ class Authentication extends Component {
     password: "",
     currentComponent: "loginUser",
   }
-  
+
 
   // function onclick log out
-  logout=()=>{
-    this.setState({waitingForServer:false})
+  logout = () => {
+    this.setState({ waitingForServer: false })
   }
 
-  handleType=(event)=>{
-    this.setState({[event.target.name]: event.target.value})
+  handleType = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
-  logingInPromoter=(event)=>{
+  logingInPromoter = (event) => {
     event.preventDefault();
-    this.setState({currentComponent: "loginPromoter"}); 
+    this.setState({ currentComponent: "loginPromoter" });
   }
 
-  logingInUser=(event)=>{
+  logingInUser = (event) => {
     event.preventDefault();
-    this.setState({currentComponent: "loginUser"}); 
+    this.setState({ currentComponent: "loginUser" });
   }
-  registerUser=(event)=>{
+  registerUser = (event) => {
     event.preventDefault();
-    this.setState({currentComponent: "registerUser"}); 
+    this.setState({ currentComponent: "registerUser" });
   }
 
-  registerPromoter=(event)=>{
+  registerPromoter = (event) => {
     event.preventDefault();
-    this.setState({currentComponent: "registerPromoter"}); 
+    this.setState({ currentComponent: "registerPromoter" });
+  }
+
+  chatEmail = () => {
+    this.props.chatEmail(this.state.email)
   }
 
 
-  display=()=>{
-    if(this.state.currentComponent === "loginUser"){
-      return <LoginUser registerUser={this.registerUser} onRegister={ this.props.onRegister } />
+  display = () => {
+    if (this.state.currentComponent === "loginUser") {
+      return <LoginUser registerUser={this.registerUser} onRegister={this.props.onRegister} />
     }
-    else if(this.state.currentComponent === "loginPromoter"){
-      return <LoginPromoter registerPromoter={this.registerPromoter}  onRegister={ this.props.onRegister }/>
+    else if (this.state.currentComponent === "loginPromoter") {
+      return <LoginPromoter registerPromoter={this.registerPromoter} onRegister={this.props.onRegister} />
     }
-    else if(this.state.currentComponent === "registerUser"){
-      return <Register logingInUser={this.logingInUser} onRegister={ this.props.onRegister } />
+    else if (this.state.currentComponent === "registerUser") {
+      return <Register logingInUser={this.logingInUser} onRegister={this.props.onRegister} />
     }
-    else if(this.state.currentComponent === "registerPromoter"){
+    else if (this.state.currentComponent === "registerPromoter") {
       return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} />
     }
   }
-  
+
 
   render() {
     return (
@@ -72,12 +76,12 @@ class Authentication extends Component {
             <h1 className="display-4">Register / Login</h1>
             <form className="form-inline">
               <div className="form-row">
-                  <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn-login">
-                    Promoter <i className="fas fa-user-tie"></i> 
-                  </button>
-                  <button onClick={this.logingInUser} type="button" className="btn-login">
-                    User <i className="fas fa-users"></i>  
-                  </button>
+                <button onClick={this.logingInPromoter} name="loginPromoter" type="button" className="btn-login">
+                  Promoter <i className="fas fa-user-tie"></i>
+                </button>
+                <button onClick={this.logingInUser} type="button" className="btn-login">
+                  User <i className="fas fa-users"></i>
+                </button>
               </div>
             </form>
           </div>
@@ -88,11 +92,10 @@ class Authentication extends Component {
             <img src={Barre} alt="Logo" />
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
 }
 
 export default withRouter(Authentication);
-  
