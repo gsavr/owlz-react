@@ -1,0 +1,28 @@
+
+
+
+//old way 
+
+import React from 'react';
+
+class ShowHide extends React.Component {
+    state = {
+        shown: true /* this.props.hide */,
+    }
+
+    showHide = () => {
+        this.setState({ shown: !this.state.shown ? true : false });
+        this.props.showHide(this.state.shown)
+    }
+
+    render() {
+        console.log(`shown state in showhide component: ${this.state.shown}`) //works
+        return (
+            <div className="show-hide" onClick={this.showHide}>{!this.state.shown ? 'Show Chats' : 'Hide Chats' }</div>
+        )
+    }
+}
+
+export default ShowHide
+
+

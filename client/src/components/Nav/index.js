@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+//import ChatApp from '../ChatApp/ChatApp'
 import logo from '../images/owl.png';
 import './nav.css';
 
@@ -47,7 +48,7 @@ class Nav extends Component {
              log out
           </button>}
         </span>
-      </div>
+      </div>{/* <ChatApp /> */}
     </nav>
   );
 }
