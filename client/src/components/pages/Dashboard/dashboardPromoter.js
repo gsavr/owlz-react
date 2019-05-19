@@ -52,6 +52,7 @@ class dashboardPromoter extends Component {
                 localStorage.setItem("userChatMessage", userChatName);
                 localStorage.setItem("userChatEmail", userChatEmail);
                 localStorage.setItem("userChatId", userChatId);
+                window.location.reload();
             });
         });
     }
