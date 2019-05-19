@@ -14,6 +14,7 @@ class dashboardPromoter extends Component {
         edit: false,
         userChatEmail: "",
         userChatId: "",
+        userChatName: "",
     }
     componentDidMount() {
         const id =this.props.match.params.id
@@ -38,12 +39,17 @@ class dashboardPromoter extends Component {
             API.getUserById(userId).then((data)=> {
                 this.setState({ userChatEmail: data.data.email})
                 this.setState({ userChatId: data.data.id})
+                this.setState({ userChatName: data.data.first_name})
+
                 const userChatEmail = this.state.userChatEmail;
                 const userChatId = this.state.userChatId;
+                const userChatName = this.state.userChatName;
 
                 console.log(`User Email for chat: ${this.state.userChatEmail}`);
                 console.log(`User Id for chat: ${this.state.userChatId}`)
-                
+                console.log(`User Name for chat: ${this.state.userChatName}`)
+
+                localStorage.setItem("userChatMessage", userChatName);
                 localStorage.setItem("userChatEmail", userChatEmail);
                 localStorage.setItem("userChatId", userChatId);
             });

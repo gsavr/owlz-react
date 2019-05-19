@@ -127,8 +127,9 @@ class ChatApp extends React.Component {
 
     render() {
         console.log(`login email Promoter: ${this.props.emailPromoter}`)
-        console.log(`login email User Message: ${this.props.emailUser}`)
-        console.log(`login Id User Message: ${this.props.userIdMessage}`)
+        console.log(`email User Message: ${this.props.emailUser}`)
+        console.log(`Id User Message: ${this.props.userIdMessage}`)
+        console.log(`Name User Message: ${this.props.userNameMessage}`)
         //console.log(`hide state in ChatApp ${this.state.hide}`)
         //console.log(this.state.joinedRooms[0]) //shows a lot
         //\console.log(` messages: ${this.state.messages}`) //works

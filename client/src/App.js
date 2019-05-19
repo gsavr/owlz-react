@@ -17,6 +17,7 @@ class App extends Component {
     loggedInEmailPromoter: localStorage.getItem("promoterEmail"),
     emailUserMessage: localStorage.getItem("userChatEmail"),
     userIdMessage: localStorage.getItem("userChatId"),
+    userNameMessage: localStorage.getItem("userChatMessage"),
 
   }
 
@@ -44,7 +45,8 @@ class App extends Component {
             <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.emailUserMessage} userIdMessage={this.state.userIdMessage} />}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.emailUserMessage} userIdMessage={this.state.userIdMessage} 
+          userNameMessage={this.state.userNameMessage} />}
         </div>
       </Router>
     );
