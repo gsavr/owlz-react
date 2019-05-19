@@ -65,7 +65,7 @@ export default class dashboardPromoter extends Component {
             // const end = moment(this.state.message[i].end_date).format("LL");
             Message.push(
                 <div className="card-profil">
-                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm)}>Accept <i className="fas fa-check"></i></button>
+                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm)}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Continue <i className="fas fa-comments"></i></b>}</button>
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
                     {this.state.message[i].confirm&&<div className="validate-promoter float-right" >you have valid</div>}
                     {!this.state.message[i].confirm && this.state.message[i].confirm != null&&<div className="validate-promoter float-right" >Refused</div>}
