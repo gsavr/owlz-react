@@ -31,6 +31,7 @@ class LoginUser extends Component {
             this.props.onRegister(user);
             localStorage.setItem("user", user)
             this.props.history.push(`/dashboard/${user}`);
+            window.location.reload();
           })
       })
     }

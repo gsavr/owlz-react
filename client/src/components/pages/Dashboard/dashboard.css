@@ -122,6 +122,13 @@
   padding: 10px;
 }
 
+.validate-promoter{
+  background-color: #282828;
+  color: #fff;
+  padding: 10px;
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 600px) {
   .jumbotron-dash {
     background-position-y: 0px;
