@@ -35,6 +35,7 @@ class LoginPromoter extends Component {
             this.props.onRegister(promoter);
             localStorage.setItem("promoter", promoter)
             this.props.history.push(`/dashboard/promoter/${promoter}`);
+            window.location.reload();
           })
         })
       }

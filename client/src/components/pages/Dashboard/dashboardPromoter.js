@@ -67,8 +67,9 @@ export default class dashboardPromoter extends Component {
                 <div className="card-profil">
                     <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm)}>Accept <i className="fas fa-check"></i></button>
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
-                    {this.state.message[i].confirm&&<div>you have valid</div>}
-                    {!this.state.message[i].confirm&&<div>Refused</div>}
+                    {this.state.message[i].confirm&&<div className="validate-promoter float-right" >you have valid</div>}
+                    {!this.state.message[i].confirm && this.state.message[i].confirm != null&&<div className="validate-promoter float-right" >Refused</div>}
+                    {this.state.message[i].confirm === null&&<div className="validate-promoter float-right" >Waiting your answer...</div>}
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
