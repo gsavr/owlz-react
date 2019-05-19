@@ -19,7 +19,7 @@ class ChatApp extends React.Component {
     componentDidMount() {
         const chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:22ea8e99-d0c0-4562-b5e8-847a27eaa8e2',
-            userId: this.props.email || 'client4',
+            userId: this.props.emailPromoter || 'client4',
             tokenProvider: new Chatkit.TokenProvider({
                 url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/22ea8e99-d0c0-4562-b5e8-847a27eaa8e2/token'
             })
@@ -126,7 +126,10 @@ class ChatApp extends React.Component {
 
 
     render() {
-        console.log(`login email: ${this.props.email}`)
+        console.log(`login email Promoter: ${this.props.emailPromoter}`)
+        console.log(`email User Message: ${this.props.emailUser}`)
+        console.log(`Id User Message: ${this.props.userIdMessage}`)
+        console.log(`Name User Message: ${this.props.userNameMessage}`)
         //console.log(`hide state in ChatApp ${this.state.hide}`)
         //console.log(this.state.joinedRooms[0]) //shows a lot
         //\console.log(` messages: ${this.state.messages}`) //works

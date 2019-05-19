@@ -14,16 +14,16 @@ class App extends Component {
   state = {
     loggedIn: localStorage.getItem("user") ? true : false || localStorage.getItem("promoter") ? true : false,
     logingIn: false,
-    loggedInEmail: '',
+    loggedInEmailPromoter: localStorage.getItem("promoterEmail"),
+    emailUserMessage: localStorage.getItem("userChatEmail"),
+    userIdMessage: localStorage.getItem("userChatId"),
+    userNameMessage: localStorage.getItem("userChatMessage"),
+
   }
 
   // User Login 
   onRegister = () => {
     this.setState({ loggedIn: true, logingIn: false });
-  }
-
-  chatEmail = (email) => {
-    this.setState({ loggedInEmail: email })
   }
 
   render() {
@@ -36,16 +36,17 @@ class App extends Component {
               window.location.href = '/';
               localStorage.clear()
             }} />
-          {this.state.logingIn && <Authentication onRegister={this.onRegister} chatEmail={this.chatEmail} />}
+          {this.state.logingIn && <Authentication onRegister={this.onRegister} />}
           {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
             <Route path="/listpromoter/:city" render={(props) => <Listpromoter {...props} loggedIn={this.state.loggedIn} />} />
             <Route exact path="/dashboard/:id" component={Dashboard} />
-            <Route exact path="/dashboard/promoter/:id" component={DashboardPromoter} />
+            <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp email={this.state.loggedInEmail} />}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.emailUserMessage} userIdMessage={this.state.userIdMessage} 
+          userNameMessage={this.state.userNameMessage} />}
         </div>
       </Router>
     );

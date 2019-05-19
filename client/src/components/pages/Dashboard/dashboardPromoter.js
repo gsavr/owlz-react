@@ -2,22 +2,23 @@ import React, { Component } from 'react';
 import API from '../../../Utils/API';
 import './dashboard.css';
 import EditPromoter from './editPromoter';
-import Footer from '../../Footer/footer'
+import Footer from '../../Footer/footer';
+import { withRouter } from 'react-router-dom';
 
 
-export default class dashboardPromoter extends Component {
+class dashboardPromoter extends Component {
 
     state = {
         promoter: {},
         message:[],
         edit: false,
+        userChatEmail: "",
+        userChatId: "",
+        userChatName: "",
     }
     componentDidMount() {
         const id =this.props.match.params.id
-        console.log(id)
         API.getPromoterById(id).then((data)=> {
-            console.log("Promoter data")
-            console.log(data)
             const promoter = data.data;
             API.getMessageByPromoterId(id).then((data)=> {
                 this.setState({ message: data.data, promoter})
@@ -27,15 +28,31 @@ export default class dashboardPromoter extends Component {
 
 
 
-    messageConfirm=(id, confirm)=>{
+    messageConfirm=(id, confirm, userId)=>{
         confirm = true;
         const newBody = {id: id, confirm: confirm }
         API.putMessageById(id, newBody).then((data)=> {
-            console.log("Message confirm data ")
             const promoterId =this.props.match.params.id
              API.getMessageByPromoterId(promoterId).then((data)=> {
-                console.log(data)
                 this.setState({ message: data.data})
+            });
+            API.getUserById(userId).then((data)=> {
+                this.setState({ userChatEmail: data.data.email})
+                this.setState({ userChatId: data.data.id})
+                this.setState({ userChatName: data.data.first_name})
+
+                const userChatEmail = this.state.userChatEmail;
+                const userChatId = this.state.userChatId;
+                const userChatName = this.state.userChatName;
+
+                console.log(`User Email for chat: ${this.state.userChatEmail}`);
+                console.log(`User Id for chat: ${this.state.userChatId}`)
+                console.log(`User Name for chat: ${this.state.userChatName}`)
+
+                localStorage.setItem("userChatMessage", userChatName);
+                localStorage.setItem("userChatEmail", userChatEmail);
+                localStorage.setItem("userChatId", userChatId);
+                window.location.reload();
             });
         });
     }
@@ -44,10 +61,9 @@ export default class dashboardPromoter extends Component {
         confirm = false;
         const newBody = {id: id, confirm: confirm}
         API.putMessageById(id, newBody).then((data)=> {
-            console.log("Message Delete data")
             const promoterId =this.props.match.params.id
             API.getMessageByPromoterId(promoterId).then((data)=> {
-                console.log(data)
+                console.log(data);
                 this.setState({ message: data.data})
             });
         }); 
@@ -65,7 +81,7 @@ export default class dashboardPromoter extends Component {
             // const end = moment(this.state.message[i].end_date).format("LL");
             Message.push(
                 <div className="card-profil">
-                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm)}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Continue <i className="fas fa-comments"></i></b>}</button>
+                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm,this.state.message[i].UserId )}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Continue <i className="fas fa-comments"></i></b>}</button>
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
                     {this.state.message[i].confirm&&<div className="validate-promoter float-right" >you have valid</div>}
                     {!this.state.message[i].confirm && this.state.message[i].confirm != null&&<div className="validate-promoter float-right" >Refused</div>}
@@ -124,3 +140,5 @@ export default class dashboardPromoter extends Component {
         )
     }
 }
+
+export default withRouter(dashboardPromoter);
