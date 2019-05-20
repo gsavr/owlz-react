@@ -45,8 +45,8 @@ class App extends Component {
             <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.emailUserMessage} userIdMessage={this.state.userIdMessage} 
-          userNameMessage={this.state.userNameMessage} />}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.emailUserMessage} userIdMessage={this.state.userIdMessage}
+            userNameMessage={this.state.userNameMessage} />}
         </div>
       </Router>
     );
