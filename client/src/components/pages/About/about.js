@@ -17,7 +17,7 @@ class Home extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-            <div className='text-about slideLeft'>
+              <div className='text-about slideLeft'>
                 <h1 className="text-center">who we are</h1>
                 <p>As people with a passion for travel, experiencing new cultures, and partying, we are fortunate to have a network of awesome liaisons that show us a good time every time.</p>
                 <p>We know visitors to major cities are looking for this same experience, yet there is no service that connects them to the insiders running the scene.</p>
@@ -36,8 +36,8 @@ class Home extends React.Component {
             <img src={Barre} alt="Logo" />
           </div>
         </div>
-        
-        <Footer/>
+
+        <Footer />
       </div>
     );
   }

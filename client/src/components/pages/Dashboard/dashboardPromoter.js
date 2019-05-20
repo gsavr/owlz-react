@@ -10,36 +10,36 @@ class dashboardPromoter extends Component {
 
     state = {
         promoter: {},
-        message:[],
+        message: [],
         edit: false,
         userChatEmail: "",
         userChatId: "",
         userChatName: "",
     }
     componentDidMount() {
-        const id =this.props.match.params.id
-        API.getPromoterById(id).then((data)=> {
+        const id = this.props.match.params.id
+        API.getPromoterById(id).then((data) => {
             const promoter = data.data;
-            API.getMessageByPromoterId(id).then((data)=> {
-                this.setState({ message: data.data, promoter})
+            API.getMessageByPromoterId(id).then((data) => {
+                this.setState({ message: data.data, promoter })
             });
-        });   
+        });
     }
 
 
 
-    messageConfirm=(id, confirm, userId)=>{
+    messageConfirm = (id, confirm, userId) => {
         confirm = true;
-        const newBody = {id: id, confirm: confirm }
-        API.putMessageById(id, newBody).then((data)=> {
-            const promoterId =this.props.match.params.id
-             API.getMessageByPromoterId(promoterId).then((data)=> {
-                this.setState({ message: data.data})
+        const newBody = { id: id, confirm: confirm }
+        API.putMessageById(id, newBody).then((data) => {
+            const promoterId = this.props.match.params.id
+            API.getMessageByPromoterId(promoterId).then((data) => {
+                this.setState({ message: data.data })
             });
-            API.getUserById(userId).then((data)=> {
-                this.setState({ userChatEmail: data.data.email})
-                this.setState({ userChatId: data.data.id})
-                this.setState({ userChatName: data.data.first_name})
+            API.getUserById(userId).then((data) => {
+                this.setState({ userChatEmail: data.data.email })
+                this.setState({ userChatId: data.data.id })
+                this.setState({ userChatName: data.data.first_name })
 
                 const userChatEmail = this.state.userChatEmail;
                 const userChatId = this.state.userChatId;
@@ -57,52 +57,52 @@ class dashboardPromoter extends Component {
         });
     }
 
-    messageDelete=(id, confirm)=>{
+    messageDelete = (id, confirm) => {
         confirm = false;
-        const newBody = {id: id, confirm: confirm}
-        API.putMessageById(id, newBody).then((data)=> {
-            const promoterId =this.props.match.params.id
-            API.getMessageByPromoterId(promoterId).then((data)=> {
+        const newBody = { id: id, confirm: confirm }
+        API.putMessageById(id, newBody).then((data) => {
+            const promoterId = this.props.match.params.id
+            API.getMessageByPromoterId(promoterId).then((data) => {
                 console.log(data);
-                this.setState({ message: data.data})
+                this.setState({ message: data.data })
             });
-        }); 
+        });
     }
 
-    edit=()=>{
-        this.setState({edit:true})
-      }
+    edit = () => {
+        this.setState({ edit: true })
+    }
 
-      messages = () => {
+    messages = () => {
         let Message = []
-    
+
         for (let i = 0; i < this.state.message.length; i++) {
             // const start = moment(this.state.message[i].start_date).format("LL");
             // const end = moment(this.state.message[i].end_date).format("LL");
             Message.push(
                 <div className="card-profil">
-                    <button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm,this.state.message[i].UserId )}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Continue <i className="fas fa-comments"></i></b>}</button>
+                    <button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm ? <b>Accept <i className="fas fa-check"></i></b> : <b>Continue <i className="fas fa-comments"></i></b>}</button>
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
-                    {this.state.message[i].confirm&&<div className="validate-promoter float-right" >you have valid</div>}
-                    {!this.state.message[i].confirm && this.state.message[i].confirm != null&&<div className="validate-promoter float-right" >Refused</div>}
-                    {this.state.message[i].confirm === null&&<div className="validate-promoter float-right" >Waiting your answer...</div>}
+                    {this.state.message[i].confirm && <div className="validate-promoter float-right" >you have valid</div>}
+                    {!this.state.message[i].confirm && this.state.message[i].confirm != null && <div className="validate-promoter float-right" >Refused</div>}
+                    {this.state.message[i].confirm === null && <div className="validate-promoter float-right" >Waiting your answer...</div>}
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
                     <h4>Message <i className="fas fa-comments"></i> : <span className="text-message">{this.state.message[i].message}</span></h4>
                 </div>
-               
+
             )
         }
         return Message
-      }
+    }
 
     render() {
         return (
             <div>
                 <div className="jumbotron jumbotron-fluid jumbotron-dash slideRight">
                     <div className="container text-center">
-                        <h2>Welcome</h2> 
+                        <h2>Welcome</h2>
                         <h2>{this.state.promoter.first_name} {this.state.promoter.last_name}</h2>
                     </div>
                 </div>
@@ -119,11 +119,11 @@ class dashboardPromoter extends Component {
                                 <p><i className="fas fa-language"></i> {this.state.promoter.languages}</p>
                                 <p><i className="fab fa-instagram"></i> {this.state.promoter.instagram}</p>
                             </div>
-                            
+
                         </div>
                         <div className="col-md-8 slideLeft">
-                            {this.state.edit&&<EditPromoter onUpdate={(promoter)=>{this.setState({promoter, edit: false})}} promoterData={this.state.promoter}/>}
-                            {!this.state.edit&&<div className="card-profil">
+                            {this.state.edit && <EditPromoter onUpdate={(promoter) => { this.setState({ promoter, edit: false }) }} promoterData={this.state.promoter} />}
+                            {!this.state.edit && <div className="card-profil">
                                 <h2>About me</h2>
                                 <hr></hr>
                                 <p>{this.state.promoter.descriptions}</p>
@@ -133,10 +133,10 @@ class dashboardPromoter extends Component {
                             </div>}
                         </div>
                     </div>
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
-            
+
         )
     }
 }
