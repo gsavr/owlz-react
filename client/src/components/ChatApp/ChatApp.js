@@ -72,15 +72,15 @@ class ChatApp extends React.Component {
         })
     }
 
-    /* createChat(parameter) {   //create new chat not done until implemented into app
+    createChat(parameter) {   //create new chat not done until implemented into app
         this.currentUser.createRoom({
-            name: parameter,
+            name: `client-${this.props}`,
             private: true,
-            addUserIds: ['user1', 'user2'],
+            addUserIds: [this.props.emailPromoter, this.props.emailUser],
         })
             .then(room => this.subscribeToChat(room.id)) // may not need this
             .catch(err => console.log('error with createRoom: ', err))
-    } */
+    }
 
     //for creating a new user
     /* newUser = () => {
