@@ -14,6 +14,7 @@ class ChatApp extends React.Component {
         joinableRooms: [],
         joinedRooms: [],
         hide: true,
+        chat: {}
     }
 
     componentDidMount() {
@@ -29,9 +30,29 @@ class ChatApp extends React.Component {
                 this.currentUser = currentUser;
                 this.getChats()
 
-
             }).catch(err => console.log('error on connecting: ', err))
+
     }
+
+    componentDidUpdate() {
+        if( this.props.chat.emailUser) {
+        this.setState({ chat: this.props.chat })
+        }
+    }
+
+    componentWillReceiveProps(newProps){
+        if(this.currentUser){
+            this.currentUser.createRoom({
+
+                name: `${newProps.chat.userName} & ${newProps.chat.promoterName}`,
+                private: true,
+                addUserIds: [newProps.chat.promoterEmail, newProps.chat.userEmail],
+            })
+                .then(room => this.subscribeToChat(room.id)) // may not need this
+                .catch(err => console.log('error with createRoom: ', err))
+        }
+        }
+     
 
     getChats = () => {
         this.currentUser.getJoinableRooms()
@@ -72,15 +93,6 @@ class ChatApp extends React.Component {
         })
     }
 
-    createChat(parameter) {   //create new chat not done until implemented into app
-        this.currentUser.createRoom({
-            name: `client-${this.props}`,
-            private: true,
-            addUserIds: [this.props.emailPromoter, this.props.emailUser],
-        })
-            .then(room => this.subscribeToChat(room.id)) // may not need this
-            .catch(err => console.log('error with createRoom: ', err))
-    }
 
     //for creating a new user
     /* newUser = () => {
@@ -102,6 +114,7 @@ class ChatApp extends React.Component {
     }
 
     activeChat = () => {
+        
         return (
             <div className="app">
                 <MessageList
@@ -126,10 +139,9 @@ class ChatApp extends React.Component {
 
 
     render() {
-        console.log(`login email Promoter: ${this.props.emailPromoter}`)
-        console.log(`email User Message: ${this.props.emailUser}`)
-        console.log(`Id User Message: ${this.props.userIdMessage}`)
-        console.log(`Name User Message: ${this.props.userNameMessage}`)
+        console.log(this.props.chat);
+
+
         //console.log(`hide state in ChatApp ${this.state.hide}`)
         //console.log(this.state.joinedRooms[0]) //shows a lot
         //\console.log(` messages: ${this.state.messages}`) //works
