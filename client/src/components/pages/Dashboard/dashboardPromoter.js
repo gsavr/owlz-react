@@ -20,6 +20,10 @@ class dashboardPromoter extends Component {
         const id = this.props.match.params.id
         API.getPromoterById(id).then((data) => {
             const promoter = data.data;
+            console.log("promoter")
+            console.log(data.data.id)
+            console.log(data.data.handle)
+            console.log(data.data.email)
             API.getMessageByPromoterId(id).then((data) => {
                 this.setState({ message: data.data, promoter })
             });
@@ -37,22 +41,17 @@ class dashboardPromoter extends Component {
                 this.setState({ message: data.data })
             });
             API.getUserById(userId).then((data) => {
-                this.setState({ userChatEmail: data.data.email })
-                this.setState({ userChatId: data.data.id })
-                this.setState({ userChatName: data.data.first_name })
-
-                const userChatEmail = this.state.userChatEmail;
-                const userChatId = this.state.userChatId;
-                const userChatName = this.state.userChatName;
-
-                console.log(`User Email for chat: ${this.state.userChatEmail}`);
-                console.log(`User Id for chat: ${this.state.userChatId}`)
-                console.log(`User Name for chat: ${this.state.userChatName}`)
-
-                localStorage.setItem("userChatMessage", userChatName);
-                localStorage.setItem("userChatEmail", userChatEmail);
-                localStorage.setItem("userChatId", userChatId);
-                window.location.reload();
+                console.log("User")
+                console.log(data.data.id);
+                console.log(data.data.email);
+                console.log(data.data.first_name);
+                const infoData = {
+                    userEmail: data.data.email,
+                    userName: data.data.first_name,
+                    promoterEmail: this.state.promoter.email,
+                    promoterName: this.state.promoter.handle
+                  }
+                  this.props.newChat(infoData);
             });
         });
     }

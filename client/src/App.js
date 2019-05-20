@@ -15,10 +15,17 @@ class App extends Component {
     loggedIn: localStorage.getItem("user") ? true : false || localStorage.getItem("promoter") ? true : false,
     logingIn: false,
     loggedInEmailPromoter: localStorage.getItem("promoterEmail"),
-    emailUserMessage: localStorage.getItem("userChatEmail"),
-    userIdMessage: localStorage.getItem("userChatId"),
-    userNameMessage: localStorage.getItem("userChatMessage"),
+    chat: {
+      userEmail:"",
+      userName: "",
+      promoterEmail: "",
+      promoterName: ""
+    }
+  }
 
+  newChat=(infoData)=>{
+    this.setState({chat: infoData});
+    console.log(this.state.chat)
   }
 
   // User Login 
@@ -42,11 +49,10 @@ class App extends Component {
             <Route exact path="/contact" component={Contact} />
             <Route path="/listpromoter/:city" render={(props) => <Listpromoter {...props} loggedIn={this.state.loggedIn} />} />
             <Route exact path="/dashboard/:id" component={Dashboard} />
-            <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} emailUser={this.state.emailUserMessage} />} />
+            <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} newChat={this.newChat} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.emailUserMessage} userIdMessage={this.state.userIdMessage}
-            userNameMessage={this.state.userNameMessage} />}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} chat={this.state.chat} />}
         </div>
       </Router>
     );
