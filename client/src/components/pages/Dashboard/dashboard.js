@@ -41,7 +41,7 @@ export default class dashboard extends Component {
                         <p>the promoter will contact you</p>
                     </div>}
                     {!this.state.message[i].confirm && this.state.message[i].confirm != null && <div className="float-right validate text-center">You have been Refused <i className="fas fa-sad-cry"></i></div>}
-                    {this.state.message[i].confirm === null && <div className="float-right validate text-center">Waiting the promoter...</div>}
+                    {this.state.message[i].confirm === null && <div className="float-right validate text-center">Waiting for the promoter...</div>}
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
