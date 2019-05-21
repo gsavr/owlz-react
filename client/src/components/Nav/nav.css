@@ -12,3 +12,7 @@
   .navbar-light:hover .navbar-nav:hover .nav-link:hover {
     text-decoration: underline;
 }
+
+a:hover{
+  text-decoration: none !important;
+}

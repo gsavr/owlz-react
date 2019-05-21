@@ -6,11 +6,14 @@
 
   .text-about{
     margin-bottom: 80px;
+    font-weight: 300;
+    font-size: 20px;
   }
   .text-about h1{
     margin-bottom: 40px;
     font-weight: 300;
   }
+
 
   .image-about img{
     margin-top: 13%;

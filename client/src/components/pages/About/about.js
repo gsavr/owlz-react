@@ -10,7 +10,7 @@ class Home extends React.Component {
       <div>
         <div className="jumbotron jumbotron-fluid jumbotron-about slideRight">
           <div className="container">
-            <h1 className="display-4 text-center">about us</h1>
+            <h1 className="display-4 text-center">About us</h1>
             <p className="lead text-center">Our experience will bring your experience to VIP.</p>
           </div>
         </div>
