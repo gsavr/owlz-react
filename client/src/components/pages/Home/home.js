@@ -86,7 +86,6 @@ class Home extends Component {
           <div className="barre">
             <img src={Barre} alt="Logo" />
           </div>
-
         </div>
 
 

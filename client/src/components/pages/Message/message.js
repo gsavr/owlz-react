@@ -32,6 +32,8 @@ class Message extends Component {
         API.createMessage(registerBody)
           .then((data) => {
             console.log(data);
+            const userId = data.data.UserId
+            this.props.history.push(`/dashboard/${userId}`);
           })
       })
     }
@@ -79,7 +81,7 @@ class Message extends Component {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn-login" data-dismiss="modal">Close</button>
-            <button disabled={this.state.waitingForServer} onClick={this.createMessage} type="submit" className="btn-login">Submit</button>
+            <button disabled={this.state.waitingForServer} onClick={this.createMessage} type="submit" data-dismiss="modal" className="btn-login">Submit</button>
           </div>
         </form>
       </div>
