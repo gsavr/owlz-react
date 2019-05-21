@@ -1,12 +1,12 @@
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////// Card Profil /////////////////////////////////////////////// */
 .jumbotron-list {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/skyline.jpg");
-  height: 200px;
-  background-position-y: -345px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/miamiSunset.jpg");
+  height: 250px;
   opacity: 2;
   color: #fff;
 }
+
 .card-profil-promoter{
     width: 95%;
     margin-left: auto;
@@ -19,8 +19,10 @@
   }
   
   .card-profil-promoter img{
-    border-radius: 8px;
-    width: 65%;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background-position: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -68,4 +70,28 @@
 
   .log-contact:hover{
     text-decoration: none;
+  }
+
+  @media only screen and (max-width: 1000px) {
+
+     .card-profil-promoter .float-right {
+        float: none!important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: max-content;
+        margin-top: 10px;
+    }
+    .description {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .card-profil-promoter img{
+      width: 160px;
+      height: 160px;
+    }
+    .jumbotron-list h1{
+      background-image: none;
+      max-width: 100%;
+    } 
   }

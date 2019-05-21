@@ -3,14 +3,14 @@ import './about.css'
 import Image1 from '../../images/skyline.jpg'
 import Footer from '../../Footer/footer'
 import Barre from '../../images/barre.png';
-class Home extends React.Component {
 
+class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className="jumbotron jumbotron-fluid jumbotron-about fadeIn">
+        <div className="jumbotron jumbotron-fluid jumbotron-about slideRight">
           <div className="container">
-            <h1 className="display-4 text-center">about us</h1>
+            <h1 className="display-4 text-center">About us</h1>
             <p className="lead text-center">Our experience will bring your experience to VIP.</p>
           </div>
         </div>
@@ -36,7 +36,6 @@ class Home extends React.Component {
             <img src={Barre} alt="Logo" />
           </div>
         </div>
-
         <Footer />
       </div>
     );

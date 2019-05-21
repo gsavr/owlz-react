@@ -12,8 +12,11 @@
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
   }
-  
 
+  .form-log h1{
+    font-weight: 300;
+  }
+  
   .form-log:hover, .form-control:hover {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
@@ -37,8 +40,67 @@
     color:#2EAF95;
   }
 
+
+  /* User */
+  .card-message{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .card-message-img{
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 0px !important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+  }
+
+  .card-parent-message{
+    width: 95%;
+    overflow: auto;
+    max-height: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    border-radius: 8px;
+    padding: 30px;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  }
+
+  .card-parent-message h1{
+    font-weight: 300;
+  }
+
+  /* Promoter */
+  .card-parent-message-promoter{
+    width: 95%;
+    max-height: 525px;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    border-radius: 8px;
+    padding: 20px;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  }
+  .card-parent-message-promoter h1{
+    font-weight: 300;
+  }
+
+
+  /* General */
   .card-profil{
     width: 95%;
+    max-height: 585px;
+    overflow: auto;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
@@ -60,6 +122,10 @@
     border-radius: 140px;
   }
 
+  .card-message .barre img {
+    margin-bottom: 0px;
+  }
+
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////// Edit User ///////////////////////////////////////////////// */
   .form-log-user{
@@ -73,6 +139,10 @@
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  }
+
+  .form-log-user h1{
+    font-weight: 300;
   }
 
   .form-log-user:hover, .form-control:hover {
@@ -101,6 +171,10 @@
   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
+.form-log-promoter h1{
+  font-weight: 300;
+}
+
 .form-log-promoter:hover, .form-control:hover {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -118,10 +192,11 @@
 
 .validate{
   background-color: #fff;
-  color: #282828;
+  color: #DAA520;
   padding: 10px;
   border: 2px solid#DAA520;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .validate-promoter{
@@ -131,12 +206,24 @@
   margin-right: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .jumbotron-dash {
     background-position-y: 0px;
   }
   .form-log{
     width: 100%;
   }
+
+  .user .float-right {
+    float: none!important;
+    margin-bottom: 10px;
+  }
+  .card-parent-message{
+    padding: 20px;
+  }
+  .card-message {
+    padding: 0px;
+}
+
 }
 
