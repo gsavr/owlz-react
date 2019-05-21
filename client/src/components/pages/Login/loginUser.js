@@ -31,9 +31,11 @@ class LoginUser extends Component {
             }else{
             console.log(data);
             const user = data.data.id;
+            const email = data.data.email
             this.setState({ userId: user });
             this.props.onRegister(user);
             localStorage.setItem("user", user)
+            localStorage.setItem("userEmail", email);
             this.props.history.push(`/dashboard/${user}`);
             window.location.reload();
             }
