@@ -15,6 +15,7 @@ class App extends Component {
     loggedIn: localStorage.getItem("user") ? true : false || localStorage.getItem("promoter") ? true : false,
     logingIn: false,
     loggedInEmailPromoter: localStorage.getItem("promoterEmail"),
+    loggedInEmailUser: localStorage.getItem("userEmail"),
     chat: {
       userEmail:"",
       userName: "",
@@ -52,7 +53,7 @@ class App extends Component {
             <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} newChat={this.newChat} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} chat={this.state.chat} />}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.loggedInEmailUser} chat={this.state.chat} />}
         </div>
       </Router>
     );
