@@ -25,6 +25,10 @@ class LoginUser extends Component {
       this.setState({ waitingForServer: true }, () => {
         API.loginUser(registerBody)
           .then((data) => {
+            if(data.data === null){
+              alert("Email or Password wrong!");
+              this.setState({waitingForServer:false});
+            }else{
             console.log(data);
             const user = data.data.id;
             this.setState({ userId: user });
@@ -32,6 +36,7 @@ class LoginUser extends Component {
             localStorage.setItem("user", user)
             this.props.history.push(`/dashboard/${user}`);
             window.location.reload();
+            }
           })
       })
     }
@@ -54,11 +59,11 @@ class LoginUser extends Component {
           <form className="form-log slideUp">
             <h1 className="text-center">Login User</h1>
             <div className="form-group">
-              <label for="exampleInputEmail">Email address</label>
+              <label htmlFor="exampleInputEmail">Email address</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
             </div>
             <div className="form-group">
-              <label for="InputPassword">Password</label>
+              <label htmlFor="InputPassword">Password</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="Password" />
             </div>
             <button disabled={this.state.waitingForServer} onClick={this.login} type="submit" className="btn-login">Submit</button>

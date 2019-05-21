@@ -80,11 +80,19 @@ class dashboardPromoter extends Component {
             // const end = moment(this.state.message[i].end_date).format("LL");
             Message.push(
                 <div className="card-profil">
-                    <button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm ? <b>Accept <i className="fas fa-check"></i></b> : <b>Continue <i className="fas fa-comments"></i></b>}</button>
+                    {/* If confirm is null button */}
+                    {this.state.message[i].confirm === null &&<div><button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Contact him <i className="fas fa-comments"></i></b>}</button>
+                    <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button></div>}
+
+                    {/* Confirm is true or false */}
+                    {this.state.message[i].confirm &&<button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Contact him <i className="fas fa-comments"></i></b>}</button>}
+                    {!this.state.message[i].confirm && this.state.message[i].confirm != null&&<button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>}
+
+                    {/* <button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm ? <b>Accept <i className="fas fa-check"></i></b> : <b>Continue <i className="fas fa-comments"></i></b>}</button>
                     <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>
                     {this.state.message[i].confirm && <div className="validate-promoter float-right" >Request validated</div>}
                     {!this.state.message[i].confirm && this.state.message[i].confirm != null && <div className="validate-promoter float-right" >Refused</div>}
-                    {this.state.message[i].confirm === null && <div className="validate-promoter float-right" >Awaiting your answer...</div>}
+                    {this.state.message[i].confirm === null && <div className="validate-promoter float-right" >Awaiting your answer...</div>} */}
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{this.state.message[i].start_date} to {this.state.message[i].end_date}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>

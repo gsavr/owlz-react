@@ -61,28 +61,28 @@ class Edit extends Component {
                 <form className="form-log-user slideUp">
                     <h1 className="text-center">Edit {this.props.userData.first_name} {this.props.userData.last_name}</h1>
                     <div className="form-group">
-                        <label for="exampleInputEmail">Email address</label>
+                        <label htmlFor="exampleInputEmail">Email address</label>
                         <input onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder={this.props.userData.email} />
                         <p></p>
                     </div>
                     <div className="form-group">
-                        <label for="InputPassword">Password</label>
+                        <label htmlFor="InputPassword">Password</label>
                         <input onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder={this.props.userData.password} />
                     </div>
                     <div className="form-group">
-                        <label for="InputPassword">First Name</label>
+                        <label htmlFor="InputPassword">First Name</label>
                         <input onChange={this.handleType} name="first_name" type="text" className="form-control" id="InputFirstName" placeholder={this.props.userData.first_name} />
                     </div>
                     <div className="form-group">
-                        <label for="InputPassword">Last Name</label>
+                        <label htmlFor="InputPassword">Last Name</label>
                         <input onChange={this.handleType} name="last_name" type="text" className="form-control" id="InputFirstLast" placeholder={this.props.userData.last_name} />
                     </div>
                     <div className="form-group">
-                        <label for="InputPassword">Phone</label>
+                        <label htmlFor="InputPassword">Phone</label>
                         <input onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder={this.props.userData.phone} />
                     </div>
                     <div className="form-group">
-                        <label for="InputPassword">Image</label><br></br>
+                        <label htmlFor="InputPassword">Image</label><br></br>
                         <button onClick={this.showWidget} className="btn-login">{this.state.picOk && <i className="far fa-check-square"></i>} Upload Picture <i className="fas fa-image"></i></button>
                     </div>
                     <button onClick={this.edit} type="submit" className="btn-login">Submit</button>

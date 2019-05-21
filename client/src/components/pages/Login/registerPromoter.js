@@ -61,35 +61,35 @@ class Registerpromoter extends Component {
           <form className="form-log slideUp">
             <h1 className="text-center">Register Promoter</h1>
             <div className="form-group">
-              <label for="InputFirstname">First Name</label>
+              <label htmlFor="InputFirstname">First Name</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="firstName" type="text" className="form-control" id="InputFirstname" placeholder="First name" />
             </div>
             <div className="form-group">
-              <label for="Inputlastname">Last Name</label>
+              <label htmlFor="Inputlastname">Last Name</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="lastName" type="text" className="form-control" id="Inputlastname" placeholder="Last name" />
             </div>
             <div className="form-group">
-              <label for="exampleInputEmail">Email address</label>
+              <label htmlFor="exampleInputEmail">Email address</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="email" type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="your@email.com" />
             </div>
             <div className="form-group">
-              <label for="InputPassword">Password</label>
+              <label htmlFor="InputPassword">Password</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="password" type="password" className="form-control" id="InputPassword" placeholder="choose your password" />
             </div>
             <div className="form-group">
-              <label for="InputPassword">Handle</label>
+              <label htmlFor="InputPassword">Handle</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="handle" type="text" className="form-control" id="InputHandle" placeholder="@handle" />
             </div>
             <div className="form-group">
-              <label for="InputPassword">Description</label>
+              <label htmlFor="InputPassword">Description</label>
               <textarea disabled={this.state.waitingForServer} onChange={this.handleType} name="descriptions" type="text" className="form-control" id="InputDescription" placeholder="Describe your services" />
             </div>
             <div className="form-group">
-              <label for="InputPassword">City</label>
+              <label htmlFor="InputPassword">City</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="city" type="text" className="form-control" id="InputCity" placeholder="City" />
             </div>
             <div className="form-group">
-              <label for="InputPassword">Language</label>
+              <label htmlFor="InputPassword">Language</label>
               <select disabled={this.state.waitingForServer} onChange={this.handleType} name="languages" type="text" className="form-control" id="InputLanguages">
                 <option value="" default>Your Language</option>
                 <option value="English">English</option>
@@ -99,7 +99,7 @@ class Registerpromoter extends Component {
               </select>
             </div>
             <div className="form-group">
-              <label for="InputPassword">Phone</label>
+              <label htmlFor="InputPassword">Phone</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder="Phone Number" />
             </div>
 
