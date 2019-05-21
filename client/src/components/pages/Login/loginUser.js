@@ -25,19 +25,19 @@ class LoginUser extends Component {
       this.setState({ waitingForServer: true }, () => {
         API.loginUser(registerBody)
           .then((data) => {
-            if(data.data === null){
+            if (data.data === null) {
               alert("Email or Password wrong!");
-              this.setState({waitingForServer:false});
-            }else{
-            console.log(data);
-            const user = data.data.id;
-            const email = data.data.email
-            this.setState({ userId: user });
-            this.props.onRegister(user);
-            localStorage.setItem("user", user)
-            localStorage.setItem("userEmail", email);
-            this.props.history.push(`/dashboard/${user}`);
-            window.location.reload();
+              this.setState({ waitingForServer: false });
+            } else {
+              console.log(data);
+              const user = data.data.id;
+              const email = data.data.email
+              this.setState({ userId: user });
+              this.props.onRegister(user);
+              localStorage.setItem("user", user)
+              localStorage.setItem("userEmail", email);
+              this.props.history.push(`/dashboard/${user}`);
+              window.location.reload();
             }
           })
       })

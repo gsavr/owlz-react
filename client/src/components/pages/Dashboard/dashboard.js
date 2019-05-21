@@ -37,13 +37,13 @@ export default class dashboard extends Component {
             Message.push(
                 <div className="card-message">
                     {this.state.message[i].confirm && <div className="float-right validate text-center">
-                        <span>You have been Validated <i className="fas fa-laugh-beam"></i><br></br>the promoter will contact you</span>
+                        <span>The promoter you requested has confirmed he is availble <i className="fas fa-laugh-beam"></i><br></br>He will be contacting you soon via the Chat</span>
                     </div>}
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{start} to {end}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>
                     <h4>Occassion <i className="fas fa-gift"></i> : <span className="text-message">{this.state.message[i].occasion}</span></h4>
                     <h4>Message <i className="fas fa-comments"></i> : <span className="text-message">{this.state.message[i].message}</span></h4>
-                    {!this.state.message[i].confirm && this.state.message[i].confirm != null && <div className="validate text-center">You have been Refused <i className="fas fa-sad-cry"></i></div>}
+                    {!this.state.message[i].confirm && this.state.message[i].confirm != null && <div className="validate text-center">The promoter is not available for the dates requested. Please search again <i className="fas fa-sad-cry"></i></div>}
                     {this.state.message[i].confirm === null && <div className="validate text-center">Waiting for the promoter...</div>}
                     <div className="barre">
                         <img className="card-message-img" src={Barre} alt="Logo" />

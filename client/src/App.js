@@ -17,15 +17,15 @@ class App extends Component {
     loggedInEmailPromoter: localStorage.getItem("promoterEmail"),
     loggedInEmailUser: localStorage.getItem("userEmail"),
     chat: {
-      userEmail:"",
+      userEmail: "",
       userName: "",
       promoterEmail: "",
       promoterName: ""
     }
   }
 
-  newChat=(infoData)=>{
-    this.setState({chat: infoData});
+  newChat = (infoData) => {
+    this.setState({ chat: infoData });
     console.log(this.state.chat)
   }
 
