@@ -29,18 +29,18 @@ class LoginPromoter extends Component {
       this.setState({ waitingForServer: true }, () => {
         API.loginPromoter(registerBody)
           .then((data) => {
-            if(data.data === null){
+            if (data.data === null) {
               alert("Email or Password wrong!");
-              this.setState({waitingForServer:false});
-            }else{
-            const promoter = data.data.id;
-            const email = data.data.email
-            this.setState({ promoterId: promoter });
-            this.props.onRegister(promoter);
-            localStorage.setItem("promoter", promoter)
-            localStorage.setItem("promoterEmail", email)
-            this.props.history.push(`/dashboard/promoter/${promoter}`);
-            window.location.reload();
+              this.setState({ waitingForServer: false });
+            } else {
+              const promoter = data.data.id;
+              const email = data.data.email
+              this.setState({ promoterId: promoter });
+              this.props.onRegister(promoter);
+              localStorage.setItem("promoter", promoter)
+              localStorage.setItem("promoterEmail", email)
+              this.props.history.push(`/dashboard/promoter/${promoter}`);
+              window.location.reload();
             }
           })
       })

@@ -45,8 +45,8 @@ class dashboardPromoter extends Component {
                     userName: data.data.first_name,
                     promoterEmail: this.state.promoter.email,
                     promoterName: this.state.promoter.handle
-                  }
-                  this.props.newChat(infoData);
+                }
+                this.props.newChat(infoData);
             });
         });
     }
@@ -75,12 +75,12 @@ class dashboardPromoter extends Component {
             Message.push(
                 <div className="card-message">
                     {/* If confirm is null button */}
-                    {this.state.message[i].confirm === null &&<div><button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Contact him <i className="fas fa-comments"></i></b>}</button>
-                    <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button></div>}
+                    {this.state.message[i].confirm === null && <div><button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm ? <b>Accept <i className="fas fa-check"></i></b> : <b>Contact him <i className="fas fa-comments"></i></b>}</button>
+                        <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button></div>}
 
                     {/* Confirm is true or false */}
-                    {this.state.message[i].confirm &&<button className="btn-login float-right" onClick={()=> this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm?<b>Accept <i className="fas fa-check"></i></b>:<b>Contact him <i className="fas fa-comments"></i></b>}</button>}
-                    {!this.state.message[i].confirm && this.state.message[i].confirm != null&&<button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>}
+                    {this.state.message[i].confirm && <button className="btn-login float-right" onClick={() => this.messageConfirm(this.state.message[i].id, this.state.message[i].confirm, this.state.message[i].UserId)}>{!this.state.message[i].confirm ? <b>Accept <i className="fas fa-check"></i></b> : <b>Contact him <i className="fas fa-comments"></i></b>}</button>}
+                    {!this.state.message[i].confirm && this.state.message[i].confirm != null && <button className="btn-login float-right" onClick={() => this.messageDelete(this.state.message[i].id)}>Reject <i className="fas fa-times"></i></button>}
 
                     <h4>Date <i className="fas fa-calendar-alt"></i> : <span className="text-message">{start} to {end}</span></h4>
                     <h4>Guests <i className="fas fa-user-friends"></i> : <span className="text-message">{this.state.message[i].guests}</span></h4>

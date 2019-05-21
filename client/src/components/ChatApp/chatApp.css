@@ -16,7 +16,7 @@
 } */
 
 #root {
-    height: 100%;
+    /* height: 100%; */
 }
 
 .app {
@@ -24,10 +24,10 @@
     position: fixed;
     right: 10px;
     bottom: 0px;
-    border: .5px solid #fff;
+    /* border: .5px solid #fff; */
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-    border-radius: 3px;
+    border-radius: 15px;
     display: grid;
     width: 375px;
     height: 300px;
@@ -105,6 +105,7 @@
 .rooms-list {
     width: 100px;
     box-sizing: border-box;
+    border-radius: 15px 0px 0px 0px;
     padding: 10px;
     background-color: var(--main-color);
     overflow: scroll;
@@ -137,7 +138,7 @@
  }
 
 .rooms-list .room.active a {
-    color: #d373d6 /* var(--secondary-color) */;
+    color: #DAA520 /* var(--secondary-color) */;
 }
 
 .new-room-form {
@@ -192,17 +193,21 @@
     margin-bottom: 6px;
 }
 .message .message-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-weight: 200;
+    padding: 5px;
     background: var(--main-color);
     color: var(--secondary-color);
     display: inline;
     padding: 4px 8px;
-    border-radius: 6px;
+    border-radius: 6px 0px 6px 0px;
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 .message-list {
     box-sizing: border-box;
+    border-radius: 0px 15px 0px 0px;
     padding-left: 6px;
     width: 100%;
     height: 100%;
@@ -228,12 +233,14 @@
 }
 
 .send-message-form {
+    border-radius: 0px 0px 15px 15px;
     background: var(--send-message-form);
     display: flex;
 }
 
 .send-message-form input {
     width: 100%;
+    border-radius: 0px 0px 15px 15px;
     padding: 15px 10px;
     margin: 0;
     border-style: none;

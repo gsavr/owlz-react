@@ -48,7 +48,7 @@ class ChatApp extends React.Component {
                     private: true,
                     addUserIds: [newProps.chat.promoterEmail, newProps.chat.userEmail],
                 })
-                    .then(room => this.subscribeToChat(room.id)) // may not need this
+                    .then(room => this.subscribeToChat(room.id))
                     .catch(err => console.log('error with createRoom: ', err));
                     this.setState({hide:false})
             }
@@ -117,7 +117,6 @@ class ChatApp extends React.Component {
     }
 
     activeChat = () => {
-
         return (
             <div className="app">
                 <MessageList
