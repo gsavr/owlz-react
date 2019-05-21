@@ -35,24 +35,27 @@ class ChatApp extends React.Component {
     }
 
     componentDidUpdate() {
-        if( this.props.chat.emailUser) {
-        this.setState({ chat: this.props.chat })
+        if (this.props.chat.emailUser) {
+            this.setState({ chat: this.props.chat })
         }
     }
 
-    componentWillReceiveProps(newProps){
-        if(this.currentUser){
-            this.currentUser.createRoom({
+    componentWillReceiveProps(newProps) {
+        if (this.currentUser) {
+            if (this.state.joinedRooms.filter(room => room.name === `${newProps.chat.userName} & ${newProps.chat.promoterName}`).length === 0) {
+                this.currentUser.createRoom({
+                    name: `${newProps.chat.userName} & ${newProps.chat.promoterName}`,
+                    private: true,
+                    addUserIds: [newProps.chat.promoterEmail, newProps.chat.userEmail],
+                })
+                    .then(room => this.subscribeToChat(room.id)) // may not need this
+                    .catch(err => console.log('error with createRoom: ', err));
+                    this.setState({hide:false})
+            }
+            else{this.setState({hide:false})}
+        }
+    }
 
-                name: `${newProps.chat.userName} & ${newProps.chat.promoterName}`,
-                private: true,
-                addUserIds: [newProps.chat.promoterEmail, newProps.chat.userEmail],
-            })
-                .then(room => this.subscribeToChat(room.id)) // may not need this
-                .catch(err => console.log('error with createRoom: ', err))
-        }
-        }
-     
 
     getChats = () => {
         this.currentUser.getJoinableRooms()
@@ -114,7 +117,7 @@ class ChatApp extends React.Component {
     }
 
     activeChat = () => {
-        
+
         return (
             <div className="app">
                 <MessageList
@@ -139,11 +142,9 @@ class ChatApp extends React.Component {
 
 
     render() {
-        console.log(this.props.chat);
-
-
+        //console.log(this.props.chat);
         //console.log(`hide state in ChatApp ${this.state.hide}`)
-        //console.log(this.state.joinedRooms[0]) //shows a lot
+        //console.log(this.state.joinedRooms) //shows a lot
         //\console.log(` messages: ${this.state.messages}`) //works
         //console.log(`room in state ${this.state.roomId}`) //works
         return (
