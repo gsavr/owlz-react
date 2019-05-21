@@ -8,7 +8,6 @@ import API from "../../../Utils/API"
 import Miami1 from '../../images/story.jpg';
 import Barre from '../../images/barre.png';
 
-
 class Home extends Component {
   state = {
     city: ""
@@ -18,16 +17,13 @@ class Home extends Component {
     event.preventDefault();
     const city = this.state.city;
     const registerBody = { city: city };
-
     console.log(registerBody);
-
     API.getListPromoter(city)
       .then((data) => {
         console.log(data);
         const city = data.data.city;
         this.setState({ city: city });
       })
-
     this.renderRedirect();
   }
 
@@ -87,16 +83,13 @@ class Home extends Component {
             <img src={Barre} alt="Logo" />
           </div>
         </div>
-
-
-        <div className="text-center">
+        <div className="container text-center">
           <Slick />
         </div>
         <Footer />
       </div>
     );
   }
-
 }
 
 export default withRouter(Home);

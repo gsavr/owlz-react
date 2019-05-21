@@ -12,11 +12,27 @@
     border-radius: 8px;
   }
 
-  .slick h1{
-    margin-bottom: 40px; 
-    font-weight: 300;
-  }
+.slick h1{
+  margin-bottom: 40px; 
+  font-weight: 300;
+}
 
-  .slick{
-    margin-bottom: 80px; 
-  }
+.slick{
+  margin-bottom: 80px; 
+}
+
+button .slick-arrow .slick-prev{
+  display: none !important;
+}
+
+button .slick-arrow .slick-next{
+  display: none !important;
+}
+
+.slick-prev {
+  left: -12px;
+}
+
+.slick-next {
+  right: -12px;
+}
