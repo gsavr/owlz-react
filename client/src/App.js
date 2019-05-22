@@ -21,7 +21,16 @@ class App extends Component {
       userName: "",
       promoterEmail: "",
       promoterName: ""
+    },
+    userCreate: {
+      userEmail: "",
+      userId: "",
     }
+  }
+
+  NewUserCreate = (infoData) =>{
+    this.setState({userCreate: infoData});
+    console.log(this.state.userCreate)
   }
 
   newChat = (infoData) => {
@@ -35,6 +44,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <Router>
         <div>
@@ -44,7 +54,7 @@ class App extends Component {
               window.location.href = '/';
               localStorage.clear()
             }} />
-          {this.state.logingIn && <Authentication onRegister={this.onRegister} />}
+          {this.state.logingIn && <Authentication onRegister={this.onRegister} NewUserCreate={this.NewUserCreate} />}
           {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
@@ -53,7 +63,7 @@ class App extends Component {
             <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} newChat={this.newChat} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.loggedInEmailUser} chat={this.state.chat} />}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.loggedInEmailUser} chat={this.state.chat}/>}
         </div>
       </Router>
     );

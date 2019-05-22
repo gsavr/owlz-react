@@ -53,13 +53,13 @@ class Authentication extends Component {
 
   display = () => {
     if (this.state.currentComponent === "loginUser") {
-      return <LoginUser registerUser={this.registerUser} onRegister={this.props.onRegister} />
+      return <LoginUser registerUser={this.registerUser} onRegister={this.props.onRegister}/>
     }
     else if (this.state.currentComponent === "loginPromoter") {
       return <LoginPromoter registerPromoter={this.registerPromoter} onRegister={this.props.onRegister} />
     }
     else if (this.state.currentComponent === "registerUser") {
-      return <Register logingInUser={this.logingInUser} onRegister={this.props.onRegister} />
+      return <Register logingInUser={this.logingInUser} onRegister={this.props.onRegister} NewUserCreate={this.props.NewUserCreate}/>
     }
     else if (this.state.currentComponent === "registerPromoter") {
       return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} />

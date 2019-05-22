@@ -15,6 +15,7 @@ class Register extends Component {
     redirect: false,
   }
 
+
   // function onclick login
   register = () => {
 
@@ -28,6 +29,16 @@ class Register extends Component {
         API.registerUser(registerBody)
           .then((data) => {
             console.log(data);
+
+            // For push infoData to app.js
+            const userCreate = {
+              userId: data.data.id,
+              UserEmail: data.data.email
+            }
+            this.props.NewUserCreate(userCreate);
+            console.log(userCreate);
+
+
             const user = data.data.id;
             this.setState({ userId: user });
             this.props.onRegister(user);
