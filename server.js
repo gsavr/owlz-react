@@ -7,16 +7,19 @@
 const express = require("express");
 const routes = require("./routes");
 const Chatkit = require('@pusher/chatkit-server')
-const bodyParser = require('body-parser')
 const cors = require('cors')
 // Requiring our models for syncing
 const db = require("./models");
 // Sets up the Express App
 //  =============================================================
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(cors())
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
+// app.use(cors())
 const PORT = process.env.PORT || 3001;
 
 const chatkit = new Chatkit.default({
@@ -41,15 +44,10 @@ app.post('/users', (req, res) => {
       })
   })
   
-  app.post('/authenticate', (req, res) => {
-    const authData = chatkit.authenticate({ userId: req.query.user_id })
-    res.status(authData.status).send(authData.body)
-  })
-
-// Sets up the Express app to handle data parsing
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
+app.post('/authenticate', (req, res) => {
+  const authData = chatkit.authenticate({ userId: req.query.user_id })
+  res.status(authData.status).send(authData.body)
+})
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

@@ -22,10 +22,6 @@ class App extends Component {
       promoterEmail: "",
       promoterName: ""
     },
-    userCreate: {
-      userEmail: "",
-      userId: "",
-    },
     currentUsername: '',
   }
 
@@ -44,11 +40,6 @@ class App extends Component {
         })
         .catch(error => console.error('error', error))
     }
-
-  NewUserCreate = (infoData) =>{
-    this.setState({userCreate: infoData});
-    console.log(this.state.userCreate)
-  }
 
   newChat = (infoData) => {
     this.setState({ chat: infoData });
@@ -71,7 +62,7 @@ class App extends Component {
               window.location.href = '/';
               localStorage.clear()
             }} />
-          {this.state.logingIn && <Authentication onRegister={this.onRegister} NewUserCreate={this.NewUserCreate} onSubmit={this.onUsernameSubmitted} />}
+          {this.state.logingIn && <Authentication onRegister={this.onRegister} onSubmit={this.onUsernameSubmitted} />}
           {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />

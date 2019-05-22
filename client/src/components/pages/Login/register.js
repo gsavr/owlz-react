@@ -30,9 +30,7 @@ class Register extends Component {
         API.registerUser(registerBody)
           .then((data) => {
             console.log(data);
-            console.log("username state");
             this.setState({username: data.data.email})
-            console.log(this.state.username)
             this.props.onSubmit(this.state.username)
             const user = data.data.id;
             this.setState({ userId: user });

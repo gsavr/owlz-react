@@ -36,16 +36,6 @@ class ChatApp extends React.Component {
         if (this.props.chat.emailUser) {
             this.setState({ chat: this.props.chat })
         }
-        // if (this.props.user){
-        //     const chatkit = new Chatkit.default({
-        //         instanceLocator: "v1:us1:22ea8e99-d0c0-4562-b5e8-847a27eaa8e2",
-        //         key: "703ac5f5-f91a-4262-8e6e-53ff26344fdd:M6qnHdT9n0NylRU5Ox+64cwVGUz/Vv380xwFVlKJRcc="
-        //     })
-        //     chatkit.createUser({
-        //         id: `${this.props.user.UserEmail}`,
-        //         name: `${this.props.user.userId}`
-        //     });
-        // }
     }
 
     componentWillReceiveProps(newProps) {
@@ -63,19 +53,6 @@ class ChatApp extends React.Component {
             else{this.setState({hide:false})}
         }    
     }
-
-    // //for creating a new user
-    // newUser = () => {
-    //     const chatkit = new Chatkit.default({
-    //         instanceLocator: "v1:us1:22ea8e99-d0c0-4562-b5e8-847a27eaa8e2",
-    //         key: "703ac5f5-f91a-4262-8e6e-53ff26344fdd:M6qnHdT9n0NylRU5Ox+64cwVGUz/Vv380xwFVlKJRcc="
-    //     })
-
-    //     chatkit.createUser({
-    //         id: this.props.user.UserEmail,
-    //         name: this.props.user.userId
-    //     })
-    // }
 
     getChats = () => {
         this.currentUser.getJoinableRooms()
@@ -148,15 +125,6 @@ class ChatApp extends React.Component {
 
 
     render() {
-        // console.log("my state of render()")
-        // console.log(this.props.user);
-        // console.log(this.props.user.UserEmail);
-        // console.log(this.props.user.userId);
-        //console.log(this.props.chat);
-        //console.log(`hide state in ChatApp ${this.state.hide}`)
-        //console.log(this.state.joinedRooms) //shows a lot
-        //\console.log(` messages: ${this.state.messages}`) //works
-        //console.log(`room in state ${this.state.roomId}`) //works
         return (
             <div>
                 {!this.state.hide ? this.activeChat() : this.hiddenChat()}
