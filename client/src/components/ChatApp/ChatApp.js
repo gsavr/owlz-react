@@ -20,7 +20,7 @@ class ChatApp extends React.Component {
     componentDidMount() {
         const chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:22ea8e99-d0c0-4562-b5e8-847a27eaa8e2',
-            userId: this.props.emailPromoter || this.props.emailUser || 'client4',
+            userId: this.props.emailPromoter || this.props.emailUser || 'Not Connected',
             tokenProvider: new Chatkit.TokenProvider({
                 url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/22ea8e99-d0c0-4562-b5e8-847a27eaa8e2/token'
             })
@@ -48,12 +48,25 @@ class ChatApp extends React.Component {
                     private: true,
                     addUserIds: [newProps.chat.promoterEmail, newProps.chat.userEmail],
                 })
-                    .then(room => this.subscribeToChat(room.id))
+                    .then(room => this.subscribeToChat(room.id)) // may not need this
                     .catch(err => console.log('error with createRoom: ', err));
                     this.setState({hide:false})
             }
             else{this.setState({hide:false})}
         }
+    }
+
+    //for creating a new user
+    newUser = () => {
+        const chatkit = new Chatkit.default({
+            instanceLocator: "v1:us1:22ea8e99-d0c0-4562-b5e8-847a27eaa8e2",
+            key: "703ac5f5-f91a-4262-8e6e-53ff26344fdd:M6qnHdT9n0NylRU5Ox+64cwVGUz/Vv380xwFVlKJRcc="
+        })
+
+        chatkit.createUser({
+            id: "bookercodes",
+            name: "Alex Booker"
+        })
     }
 
 
@@ -96,20 +109,6 @@ class ChatApp extends React.Component {
         })
     }
 
-
-    //for creating a new user
-    /* newUser = () => {
-        const chatkit = new Chatkit.default({
-            instanceLocator: "YOUR INSTANCE LOCATOR",
-            key: "YOUR SECRET KEY"
-        })
-
-        chatkit.createUser({
-            id: "bookercodes",
-            name: "Alex Booker"
-        })
-    } */
-
     showHide = (hide) => {
         this.setState({
             hide: hide
@@ -117,6 +116,7 @@ class ChatApp extends React.Component {
     }
 
     activeChat = () => {
+
         return (
             <div className="app">
                 <MessageList
