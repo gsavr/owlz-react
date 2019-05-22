@@ -17,6 +17,7 @@ class Registerpromoter extends Component {
     password: "",
     waitingForServer: false,
     redirect: false,
+    username: '',
   }
 
   // function onclick login
@@ -33,6 +34,9 @@ class Registerpromoter extends Component {
         API.registerPromoter(registerBody)
           .then((data) => {
             console.log(data);
+            this.setState({username: data.data.email})
+            this.props.onSubmit(this.state.username)
+
             const promoter = data.data.id;
             this.setState({ promoterId: promoter });
             this.props.onRegister(promoter);
