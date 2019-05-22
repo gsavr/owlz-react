@@ -25,8 +25,25 @@ class App extends Component {
     userCreate: {
       userEmail: "",
       userId: "",
-    }
+    },
+    currentUsername: '',
   }
+
+  onUsernameSubmitted(username) {
+      fetch('http://localhost:3001/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username }),
+      })
+        .then(response => {
+          this.setState({
+            currentUsername: username
+          })
+        })
+        .catch(error => console.error('error', error))
+    }
 
   NewUserCreate = (infoData) =>{
     this.setState({userCreate: infoData});
@@ -54,7 +71,7 @@ class App extends Component {
               window.location.href = '/';
               localStorage.clear()
             }} />
-          {this.state.logingIn && <Authentication onRegister={this.onRegister} NewUserCreate={this.NewUserCreate} />}
+          {this.state.logingIn && <Authentication onRegister={this.onRegister} NewUserCreate={this.NewUserCreate} onSubmit={this.onUsernameSubmitted} />}
           {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
@@ -63,7 +80,7 @@ class App extends Component {
             <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} newChat={this.newChat} emailUser={this.state.emailUserMessage} />} />
             <Route component={Home} />
           </Switch>}
-          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.loggedInEmailUser} chat={this.state.chat}/>}
+          {this.state.loggedIn && <ChatApp emailPromoter={this.state.loggedInEmailPromoter} emailUser={this.state.loggedInEmailUser} chat={this.state.chat} user={this.state.userCreate} />}
         </div>
       </Router>
     );
