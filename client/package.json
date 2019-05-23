@@ -11,7 +11,8 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "0.9.x",
-    "react-slick": "^0.24.0"
+    "react-slick": "^0.24.0",
+    "react-stripe-elements": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
