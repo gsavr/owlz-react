@@ -22,7 +22,7 @@ class Registerpromoter extends Component {
 
   // function onclick login
   register = () => {
-
+    event.preventDefault();
     if (this.state.firstName === "" || this.state.lastName === "" || this.state.email === "" || this.state.password === "") {
       alert("Invalid Credentials");
     }
@@ -106,9 +106,7 @@ class Registerpromoter extends Component {
               <label htmlFor="InputPassword">Phone</label>
               <input disabled={this.state.waitingForServer} onChange={this.handleType} name="phone" type="text" className="form-control" id="InputPhone" placeholder="Phone Number" />
             </div>
-
             <button disabled={this.state.waitingForServer} onClick={this.register} type="submit" className="btn-login">Submit</button>
-            <button onClick={this.props.logingInPromoter} name="loginPromoter" type="button" className="btn-login float-right">Login Promoter <i className="fas fa-user-tie"></i></button>
           </form>
         </div>
       </div>

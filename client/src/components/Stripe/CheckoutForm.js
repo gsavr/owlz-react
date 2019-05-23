@@ -27,7 +27,8 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    if (this.state.complete) return <div><h1>Purchase Complete</h1>
+    if (this.state.complete) return <div>
+      <h1>Your payment has been successfully completed <i className="far fa-check-circle"></i></h1>
       <RegisterPromoter logingInPromoter={this.props.logingInPromoter} onRegister={this.props.onRegister} onSubmit={this.props.onSubmit}/></div>;
     return (
       <div className="row">

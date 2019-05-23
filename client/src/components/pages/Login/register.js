@@ -18,7 +18,7 @@ class Register extends Component {
 
   // function onclick login
   register = () => {
-    
+    event.preventDefault();
     if (this.state.firstName === "" || this.state.lastName === "" || this.state.email === "" || this.state.password === "") {
       alert("Invalid Credentials");
     }
