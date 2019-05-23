@@ -9,6 +9,19 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@pusher/chatkit-client@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@pusher/chatkit-client/-/chatkit-client-1.5.0.tgz#b75c0fa3a33effb679376b7e62969e709ab046dd"
+  integrity sha512-wnxRZA2XZ+WVuavtO12l5CxwyKe49bgBoicICGIr4itlpLiZm0H4+02nKYE1Agy+CwesDcVgFSYdPYWiGS3FFA==
+  dependencies:
+    "@pusher/platform" "^0.16.1"
+    ramda "^0.25.0"
+
+"@pusher/platform@^0.16.1":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@pusher/platform/-/platform-0.16.2.tgz#d6493b171903dd42a9fcd650a90d352af5e344c2"
+  integrity sha512-i8FHrurPFs2nmTDFHP1OMcFvtmZFGLUtOj46Ick/KOopTWnVv1FJkruMIV+wahP4mKl9e8XNzqe62HEXDh/n+A==
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -5541,6 +5554,11 @@ querystringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
+
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
+  integrity sha512-GXpfrYVPwx3K7RQ6aYT8KPS8XViSXUVJT1ONhoKPE9VAleW42YE+U+8VEyGWt41EnEQW7gwecYJriTI0pKoecQ==
 
 randomatic@^3.0.0:
   version "3.1.1"

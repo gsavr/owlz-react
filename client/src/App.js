@@ -9,6 +9,7 @@ import Listpromoter from "./components/pages/ListPromoter/listPromoter";
 import Nav from "./components/Nav";
 import ChatApp from './components/ChatApp/ChatApp'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Stripe from './components/Stripe/AppStrip';
 
 class App extends Component {
   state = {
@@ -66,6 +67,7 @@ class App extends Component {
           {!this.state.logingIn && <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/stripe" component={Stripe} />
             <Route path="/listpromoter/:city" render={(props) => <Listpromoter {...props} loggedIn={this.state.loggedIn} />} />
             <Route exact path="/dashboard/:id" component={Dashboard} />
             <Route exact path="/dashboard/promoter/:id" render={(props) => <DashboardPromoter {...props} newChat={this.newChat} emailUser={this.state.emailUserMessage} />} />
