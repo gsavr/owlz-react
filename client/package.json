@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@pusher/chatkit-client": "^1.5.0",
     "axios": "^0.18.0",
     "cloudinary-react": "^1.1.0",
     "moment": "^2.24.0",
@@ -11,7 +12,8 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "0.9.x",
-    "react-slick": "^0.24.0"
+    "react-slick": "^0.24.0",
+    "react-stripe-elements": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {

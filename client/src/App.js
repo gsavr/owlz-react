@@ -9,6 +9,7 @@ import Listpromoter from "./components/pages/ListPromoter/listPromoter";
 import Nav from "./components/Nav";
 import ChatApp from './components/ChatApp/ChatApp'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Stripe from './components/Stripe/AppStrip';
 
 class App extends Component {
   state = {

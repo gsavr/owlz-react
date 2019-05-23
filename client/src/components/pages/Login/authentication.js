@@ -6,6 +6,7 @@ import LoginPromoter from './loginPromoter';
 import LoginUser from './loginUser';
 import Register from './register';
 import RegisterPromoter from './registerPromoter';
+import CheckStripe from '../../Stripe/AppStrip';
 import Footer from '../../Footer/footer'
 import Barre from '../../images/barre.png';
 
@@ -62,7 +63,8 @@ class Authentication extends Component {
       return <Register logingInUser={this.logingInUser} onRegister={this.props.onRegister} onSubmit={this.props.onSubmit}/>
     }
     else if (this.state.currentComponent === "registerPromoter") {
-      return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} onSubmit={this.props.onSubmit} />
+      // return <RegisterPromoter logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} onSubmit={this.props.onSubmit} />
+       return <CheckStripe logingInPromoter={this.logingInPromoter} onRegister={this.props.onRegister} onSubmit={this.props.onSubmit} />
     }
   }
 
