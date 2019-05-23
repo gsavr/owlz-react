@@ -108,7 +108,7 @@ class EditPromoter extends Component {
                             <option value={this.props.promoterData.languages} default>Your Language</option>
                             <option value="English">English</option>
                             <option value="Spanish">Spanish</option>
-                            <option value="Spanish">French</option>
+                            <option value="French">French</option>
                             <option value="Chinese">Chinese</option>
                         </select>
                     </div>

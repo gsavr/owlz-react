@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//import ChatApp from '../ChatApp/ChatApp'
+import { withRouter } from 'react-router-dom';
 import logo from '../images/owl.png';
 import './nav.css';
 
@@ -9,7 +9,16 @@ class Nav extends Component {
 
   state = {
     user: parseInt(localStorage.getItem("user")),
-    promoter: parseInt(localStorage.getItem("promoter"))
+    promoter: parseInt(localStorage.getItem("promoter")),
+    city: ""
+  }
+
+  renderRedirect = () => {
+    this.props.history.push(`/listpromoter/${this.state.city}`)
+  }
+
+  handleType = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   render() {
@@ -46,6 +55,12 @@ class Nav extends Component {
                 Contact us
             </Link>
             </li>
+            {this.props.loggedIn && <li className="nav-item">
+              <div class="searchbar">
+                <input onChange={this.handleType} className="search_input" type="text" name="city" placeholder="Search city..."></input>
+                <span onClick={this.renderRedirect} className="search_icon"><i className="fas fa-search"></i></span>
+              </div>
+            </li>}
           </ul>
           <span className="navbar-text ">
             {!this.props.loggedIn && <button className="btn-login" onClick={this.props.onLogin} >
@@ -55,11 +70,11 @@ class Nav extends Component {
               log out
           </button>}
           </span>
-        </div>{/* <ChatApp /> */}
+        </div>
       </nav>
     );
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
