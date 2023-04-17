@@ -1,7 +1,7 @@
 {
   "name": "owlz-react",
   "version": "1.0.0",
-  "description": "## Overview An app that scrapes articles from the New York Times website and lets users save articles and leave comments on the latest news.",
+  "description": "##",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
