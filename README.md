@@ -1,20 +1,20 @@
 # Owlz
 
 ## Overview
-Final Project 
+
+Final Project
 
 ## How It Works
-[Check out the App](https://owlz-2019.herokuapp.com/)
+
+[Check out the App](https://owlz-app.herokuapp.com/)
 
 ## Technologies Used
+
 - Node.js
 - Express.js
-- react 
+- react
 - npm packages
-    - mysql
-    - express
-    - moment.js
-    - Sequelize
-
-
-
+  - mysql
+  - express
+  - moment.js
+  - Sequelize
